@@ -99,6 +99,15 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
+    "mvc-base": {
+      "version": "https://github.com/gkaragoz/mvc-base.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.textmeshpro": "3.0.1"
+      },
+      "hash": "c8a72c64e1843c226113f37f7e4d82094f25f0bb"
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,
