@@ -1,10 +1,14 @@
+using Contexts;
 using MVC.Base.Runtime.Concrete.Root;
 
-public class UIRoot : MVCContextRoot<UIContext>
+namespace Roots
 {
-    protected override void BeforeCreateContext()
+    public class UIRoot : MVCContextRoot<UIContext>
     {
-        base.BeforeCreateContext();
+        protected override void BeforeCreateContext()
+        {
+            base.BeforeCreateContext();
         
+        }
     }
 }

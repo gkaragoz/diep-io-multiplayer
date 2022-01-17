@@ -1,11 +1,15 @@
+using Contexts;
 using MVC.Base.Runtime.Concrete.Root;
 
-public class GameRoot : MVCContextRoot<GameContext>
+namespace Roots
 {
-    protected override void BeforeCreateContext()
+    public class GameRoot : MVCContextRoot<GameContext>
     {
-        base.BeforeCreateContext();
+        protected override void BeforeCreateContext()
+        {
+            base.BeforeCreateContext();
         
-        DontDestroyOnLoad(this);
+            DontDestroyOnLoad(this);
+        }
     }
 }

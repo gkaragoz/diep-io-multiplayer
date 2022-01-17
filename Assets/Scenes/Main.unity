@@ -536,8 +536,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 778044976}
-  - component: {fileID: 778044980}
   - component: {fileID: 778044979}
+  - component: {fileID: 778044978}
   - component: {fileID: 778044977}
   m_Layer: 0
   m_Name: NetworkManager
@@ -574,7 +574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offsetX: 0
   offsetY: 0
---- !u!114 &778044979
+--- !u!114 &778044978
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -603,7 +603,7 @@ MonoBehaviour:
   debugLog: 0
   statisticsGUI: 0
   statisticsLog: 0
---- !u!114 &778044980
+--- !u!114 &778044979
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -612,7 +612,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 778044975}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aab4c8111b7c411b9b92cf3dbc5bd4e, type: 3}
+  m_Script: {fileID: 11500000, guid: 014e015f955a4cd5b04419c530c70c00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dontDestroyOnLoad: 0
@@ -621,7 +621,7 @@ MonoBehaviour:
   serverTickRate: 30
   offlineScene: 
   onlineScene: 
-  transport: {fileID: 778044979}
+  transport: {fileID: 778044978}
   networkAddress: localhost
   maxConnections: 100
   authenticator: {fileID: 0}
@@ -728,7 +728,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

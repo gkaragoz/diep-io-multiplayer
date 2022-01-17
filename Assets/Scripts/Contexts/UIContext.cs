@@ -1,15 +1,18 @@
 ﻿using MVC.Base.Runtime.Concrete.Context;
 
-public class UIContext : BaseUIContext
+namespace Contexts
 {
-    protected override void mapBindings()
+    public class UIContext : BaseUIContext
     {
-        base.mapBindings();
+        protected override void mapBindings()
+        {
+            base.mapBindings();
         
-    }
+        }
 
-    public override void Launch()
-    {
-        base.Launch();
+        public override void Launch()
+        {
+            base.Launch();
+        }
     }
 }
