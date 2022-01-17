@@ -1,7 +1,232 @@
 fileFormatVersion: 2
 guid: 8899e28bd09a540ef80c07b8bf46372e
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 7557684228600623069
+    second: blue_tanks_0
+  - first:
+      213: -193557184292034074
+    second: blue_tanks_1
+  - first:
+      213: 3954412565058264388
+    second: blue_tanks_2
+  - first:
+      213: -8267880755938103737
+    second: blue_tanks_3
+  - first:
+      213: -146240269662842753
+    second: blue_tanks_4
+  - first:
+      213: 4361649349572842382
+    second: blue_tanks_5
+  - first:
+      213: -5375877717741610523
+    second: blue_tanks_6
+  - first:
+      213: -560754949846602052
+    second: blue_tanks_7
+  - first:
+      213: -6870703335028859714
+    second: blue_tanks_8
+  - first:
+      213: 3782785307086557936
+    second: blue_tanks_9
+  - first:
+      213: 8910940149993193722
+    second: blue_tanks_10
+  - first:
+      213: 4751623064668786270
+    second: blue_tanks_11
+  - first:
+      213: 8715752193195639101
+    second: blue_tanks_12
+  - first:
+      213: 8986414625648452791
+    second: blue_tanks_13
+  - first:
+      213: 6854914934192785560
+    second: blue_tanks_14
+  - first:
+      213: 3616653465053035092
+    second: blue_tanks_15
+  - first:
+      213: -797749156543929101
+    second: blue_tanks_16
+  - first:
+      213: -6949924646037801394
+    second: blue_tanks_17
+  - first:
+      213: -5784547013833867949
+    second: blue_tanks_18
+  - first:
+      213: -102217037263229803
+    second: blue_tanks_19
+  - first:
+      213: -8509127519452779701
+    second: blue_tanks_20
+  - first:
+      213: -3856076823825002427
+    second: blue_tanks_21
+  - first:
+      213: 4180362890170685832
+    second: blue_tanks_22
+  - first:
+      213: -8948935472799315073
+    second: blue_tanks_23
+  - first:
+      213: 1379048844603710205
+    second: blue_tanks_24
+  - first:
+      213: 8195718225774482207
+    second: blue_tanks_25
+  - first:
+      213: 667209600891959899
+    second: blue_tanks_26
+  - first:
+      213: 2881134201738390433
+    second: blue_tanks_27
+  - first:
+      213: 5673187462554794810
+    second: blue_tanks_28
+  - first:
+      213: 4145012762578103347
+    second: blue_tanks_29
+  - first:
+      213: 4399593752745424676
+    second: blue_tanks_30
+  - first:
+      213: 4923042126964795696
+    second: blue_tanks_31
+  - first:
+      213: -3762147350575402969
+    second: blue_tanks_32
+  - first:
+      213: 5929300592804578597
+    second: blue_tanks_33
+  - first:
+      213: -2044973157694051048
+    second: blue_tanks_34
+  - first:
+      213: 1865143384727800149
+    second: blue_tanks_35
+  - first:
+      213: 2760547392527581971
+    second: blue_tanks_36
+  - first:
+      213: -5092749408122512781
+    second: blue_tanks_37
+  - first:
+      213: -6764205061500731881
+    second: blue_tanks_38
+  - first:
+      213: 912363292950482770
+    second: blue_tanks_39
+  - first:
+      213: -777008046615092272
+    second: blue_tanks_40
+  - first:
+      213: -3392442971306741982
+    second: blue_tanks_41
+  - first:
+      213: 4970102177441391360
+    second: blue_tanks_42
+  - first:
+      213: -4207538503375193492
+    second: blue_tanks_43
+  - first:
+      213: 2137141371771941008
+    second: blue_tanks_44
+  - first:
+      213: 8584018722118439749
+    second: blue_tanks_45
+  - first:
+      213: -2879967034126042036
+    second: blue_tanks_46
+  - first:
+      213: -405322603451482358
+    second: blue_tanks_47
+  - first:
+      213: -4588659622750348526
+    second: blue_tanks_48
+  - first:
+      213: -8759318150128124226
+    second: blue_tanks_49
+  - first:
+      213: -1398818944298988744
+    second: blue_tanks_50
+  - first:
+      213: 8647211255008745328
+    second: blue_tanks_51
+  - first:
+      213: 571949153752975377
+    second: blue_tanks_52
+  - first:
+      213: -7344260781994693925
+    second: blue_tanks_53
+  - first:
+      213: -2233048070044931616
+    second: blue_tanks_54
+  - first:
+      213: 2211897948444668221
+    second: blue_tanks_55
+  - first:
+      213: -2751590368120922989
+    second: blue_tanks_56
+  - first:
+      213: 428240165475875867
+    second: blue_tanks_57
+  - first:
+      213: -6845954896373068899
+    second: blue_tanks_58
+  - first:
+      213: 5974291375750300196
+    second: blue_tanks_59
+  - first:
+      213: -700252653678270389
+    second: blue_tanks_60
+  - first:
+      213: 5345621840298938831
+    second: blue_tanks_61
+  - first:
+      213: -7900192450993562648
+    second: blue_tanks_62
+  - first:
+      213: -7825178667724791281
+    second: blue_tanks_63
+  - first:
+      213: 2898988190756368266
+    second: blue_tanks_64
+  - first:
+      213: -9048939455439249682
+    second: blue_tanks_65
+  - first:
+      213: 3134995981004232188
+    second: blue_tanks_66
+  - first:
+      213: 1359454798219704042
+    second: blue_tanks_67
+  - first:
+      213: -2529459726910574224
+    second: blue_tanks_68
+  - first:
+      213: 830931869242482190
+    second: blue_tanks_69
+  - first:
+      213: 2282763773998482950
+    second: blue_tanks_70
+  - first:
+      213: -5356644601695685880
+    second: blue_tanks_71
+  - first:
+      213: 2753945886854629339
+    second: blue_tanks_72
+  - first:
+      213: -4138392998821272092
+    second: blue_tanks_73
+  - first:
+      213: -5363817859756228650
+    second: blue_tanks_74
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -113,11 +338,1586 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: blue_tanks_0
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 904
+        width: 61
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddfef4a73c942e860800000000000000
+      internalID: 7557684228600623069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_1
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 895
+        width: 92
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e96c8234c8505df0800000000000000
+      internalID: -193557184292034074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_2
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 886
+        width: 109
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44d93abc645e0e630800000000000000
+      internalID: 3954412565058264388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_3
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 860
+        width: 118
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74e6501f146924d80800000000000000
+      internalID: -8267880755938103737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_4
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 856
+        width: 118
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7093e2ef3378fdf0800000000000000
+      internalID: -146240269662842753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_5
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 865
+        width: 109
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e835a1479f0b78c30800000000000000
+      internalID: 4361649349572842382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_6
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 882
+        width: 109
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e9d216c2bb0565b0800000000000000
+      internalID: -5375877717741610523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_7
+      rect:
+        serializedVersion: 2
+        x: 919
+        y: 880
+        width: 92
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbee958185cc738f0800000000000000
+      internalID: -560754949846602052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_8
+      rect:
+        serializedVersion: 2
+        x: 1043
+        y: 870
+        width: 101
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebc538628bb56a0a0800000000000000
+      internalID: -6870703335028859714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_9
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 871
+        width: 59
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f2167ad1372f7430800000000000000
+      internalID: 3782785307086557936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_10
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 790
+        width: 92
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af04c1faad40aab70800000000000000
+      internalID: 8910940149993193722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_11
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 789
+        width: 93
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5ec22c800821f140800000000000000
+      internalID: 4751623064668786270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_12
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 763
+        width: 89
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3102c1117294f870800000000000000
+      internalID: 8715752193195639101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_13
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 779
+        width: 120
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b4a62e6d7826bc70800000000000000
+      internalID: 8986414625648452791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_14
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 771
+        width: 101
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 898c41250dc812f50800000000000000
+      internalID: 6854914934192785560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_15
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 773
+        width: 101
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45afb242a2fe03230800000000000000
+      internalID: 3616653465053035092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_16
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 770
+        width: 107
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f4e4586e53dde4f0800000000000000
+      internalID: -797749156543929101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_17
+      rect:
+        serializedVersion: 2
+        x: 853
+        y: 772
+        width: 107
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e463f215b58ec8f90800000000000000
+      internalID: -6949924646037801394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_18
+      rect:
+        serializedVersion: 2
+        x: 971
+        y: 773
+        width: 101
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35db2e5832929bfa0800000000000000
+      internalID: -5784547013833867949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_19
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 775
+        width: 83
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59caeeb652ad49ef0800000000000000
+      internalID: -102217037263229803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_20
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 774
+        width: 75
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4b2486ba9189e980800000000000000
+      internalID: -8509127519452779701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_21
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 644
+        width: 97
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5405b412f867c7ac0800000000000000
+      internalID: -3856076823825002427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_22
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 669
+        width: 86
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88959dc66e1a30a30800000000000000
+      internalID: 4180362890170685832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_23
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 651
+        width: 91
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7b87e9d99efec380800000000000000
+      internalID: -8948935472799315073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_24
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 659
+        width: 65
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfa548e1e9d532310800000000000000
+      internalID: 1379048844603710205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_25
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 671
+        width: 103
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f139b76bd4a0db170800000000000000
+      internalID: 8195718225774482207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_26
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 631
+        width: 115
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5a35e3d897624900800000000000000
+      internalID: 667209600891959899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_27
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 663
+        width: 109
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ab68d4aa48dbf720800000000000000
+      internalID: 2881134201738390433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_28
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 671
+        width: 101
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3b37c970f53bbe40800000000000000
+      internalID: 5673187462554794810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_29
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 672
+        width: 76
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33cade6752b068930800000000000000
+      internalID: 4145012762578103347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_30
+      rect:
+        serializedVersion: 2
+        x: 1038
+        y: 675
+        width: 106
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4273b64453f7e0d30800000000000000
+      internalID: 4399593752745424676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_31
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 664
+        width: 92
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03925082bb8225440800000000000000
+      internalID: 4923042126964795696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_32
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 541
+        width: 101
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 720b648daea2acbc0800000000000000
+      internalID: -3762147350575402969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_33
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 524
+        width: 92
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52541a0797b194250800000000000000
+      internalID: 5929300592804578597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_34
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 545
+        width: 86
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81def607fbbce93e0800000000000000
+      internalID: -2044973157694051048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_35
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 542
+        width: 92
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 559ced5c60252e910800000000000000
+      internalID: 1865143384727800149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_36
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 544
+        width: 88
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 313cc3d3a3f6f4620800000000000000
+      internalID: 2760547392527581971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_37
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 525
+        width: 97
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37ad6c6556be259b0800000000000000
+      internalID: -5092749408122512781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_38
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 522
+        width: 112
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71e7959b557b022a0800000000000000
+      internalID: -6764205061500731881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_39
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 540
+        width: 81
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25f4b6eb49d59ac00800000000000000
+      internalID: 912363292950482770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_40
+      rect:
+        serializedVersion: 2
+        x: 983
+        y: 548
+        width: 102
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d323e16c438735f0800000000000000
+      internalID: -777008046615092272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_41
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 551
+        width: 85
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22fad7e671f9be0d0800000000000000
+      internalID: -3392442971306741982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_42
+      rect:
+        serializedVersion: 2
+        x: 1226
+        y: 534
+        width: 65
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0032acff89959f440800000000000000
+      internalID: 4970102177441391360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_43
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 438
+        width: 92
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6afa8f0602db95c0800000000000000
+      internalID: -4207538503375193492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_44
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 436
+        width: 75
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 090f14b21c6a8ad10800000000000000
+      internalID: 2137141371771941008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_45
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 428
+        width: 83
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5431c253c8f802770800000000000000
+      internalID: 8584018722118439749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_46
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 438
+        width: 74
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4cf41ebd3d4808d0800000000000000
+      internalID: -2879967034126042036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_47
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 436
+        width: 90
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0f76d95d31006af0800000000000000
+      internalID: -405322603451482358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_48
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 435
+        width: 90
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21b99c6826ec150c0800000000000000
+      internalID: -4588659622750348526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_49
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 190
+        width: 80
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebe3bf22d86a07680800000000000000
+      internalID: -8759318150128124226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_50
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 13
+        width: 194
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83bc8f7d495669ce0800000000000000
+      internalID: -1398818944298988744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_51
+      rect:
+        serializedVersion: 2
+        x: 1244
+        y: 185
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0775e8052d0110870800000000000000
+      internalID: 8647211255008745328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_52
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 26
+        width: 179
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 118080b99b8ffe700800000000000000
+      internalID: 571949153752975377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_53
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 8
+        width: 175
+        height: 175
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdaaf57fab1f31a90800000000000000
+      internalID: -7344260781994693925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_54
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 25
+        width: 182
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e9a99a8c9e9201e0800000000000000
+      internalID: -2233048070044931616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_55
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 110
+        width: 91
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d31b578077d32be10800000000000000
+      internalID: 2211897948444668221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_56
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 110
+        width: 89
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39c14c4832360d9d0800000000000000
+      internalID: -2751590368120922989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_57
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 86
+        width: 64
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1c7ebd592a61f500800000000000000
+      internalID: 428240165475875867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_58
+      rect:
+        serializedVersion: 2
+        x: 1181
+        y: 125
+        width: 53
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9b465d0b484ef0a0800000000000000
+      internalID: -6845954896373068899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_59
+      rect:
+        serializedVersion: 2
+        x: 1242
+        y: 134
+        width: 46
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 422c6446a52f8e250800000000000000
+      internalID: 5974291375750300196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_60
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 11
+        width: 88
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b486b7cebe33846f0800000000000000
+      internalID: -700252653678270389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_61
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 15
+        width: 77
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc1969ecdb67f2a40800000000000000
+      internalID: 5345621840298938831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_62
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 88
+        width: 47
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8eb5e45a2d0ec5290800000000000000
+      internalID: -7900192450993562648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_63
+      rect:
+        serializedVersion: 2
+        x: 1126
+        y: 89
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f02ac461671676390800000000000000
+      internalID: -7825178667724791281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_64
+      rect:
+        serializedVersion: 2
+        x: 1166
+        y: 90
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8fe51666664b3820800000000000000
+      internalID: 2898988190756368266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_65
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 90
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eeed6843285bb6280800000000000000
+      internalID: -9048939455439249682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_66
+      rect:
+        serializedVersion: 2
+        x: 1223
+        y: 90
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf5d80c1c3eb18b20800000000000000
+      internalID: 3134995981004232188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_67
+      rect:
+        serializedVersion: 2
+        x: 1252
+        y: 81
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae6f510bfe0cdd210800000000000000
+      internalID: 1359454798219704042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_68
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 30
+        width: 30
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 071b6dfa7cd85ecd0800000000000000
+      internalID: -2529459726910574224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_69
+      rect:
+        serializedVersion: 2
+        x: 1033
+        y: 29
+        width: 41
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0edfb2f120188b00800000000000000
+      internalID: 830931869242482190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_70
+      rect:
+        serializedVersion: 2
+        x: 1077
+        y: 27
+        width: 59
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6064f4fce810eaf10800000000000000
+      internalID: 2282763773998482950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_71
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 28
+        width: 34
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8033aef8d1069a5b0800000000000000
+      internalID: -5356644601695685880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_72
+      rect:
+        serializedVersion: 2
+        x: 1211
+        y: 28
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd74e9c613bf73620800000000000000
+      internalID: 2753945886854629339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_73
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 28
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e56b446e797196c0800000000000000
+      internalID: -4138392998821272092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blue_tanks_74
+      rect:
+        serializedVersion: 2
+        x: 1275
+        y: 27
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6df75554314ef85b0800000000000000
+      internalID: -5363817859756228650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: fabcb628fc54648699945435b7924085
     internalID: 0
     vertices: []
     indices: 
