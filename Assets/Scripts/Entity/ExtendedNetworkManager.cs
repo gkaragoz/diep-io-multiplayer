@@ -7,6 +7,7 @@ namespace Entity
     {
         public Action<NetworkConnection> OnServerConnected { get; set; }
         public Action<NetworkConnection> OnServerDisconnected { get; set; }
+        public Action<NetworkConnection> OnServerAddedPlayer { get; set; }
         
         public override void OnServerConnect(NetworkConnection conn)
         {
@@ -26,53 +27,7 @@ namespace Entity
         {
             base.OnServerAddPlayer(conn);
             
+            OnServerAddedPlayer?.Invoke(conn);
         }
-
-        public override void OnServerError(NetworkConnection conn, Exception exception)
-        {
-            base.OnServerError(conn, exception);
-        }
-
-        public override void OnServerChangeScene(string newSceneName)
-        {
-            base.OnServerChangeScene(newSceneName);
-        }
-
-        public override void OnClientConnect()
-        {
-            base.OnClientConnect();
-        }
-
-        public override void OnClientConnect(NetworkConnection conn)
-        {
-            base.OnClientConnect(conn);
-        }
-        
-        public override void OnClientDisconnect()
-        {
-            base.OnClientDisconnect();
-        }
-
-        public override void OnClientDisconnect(NetworkConnection conn)
-        {
-            base.OnClientDisconnect(conn);
-        }
-
-        public override void OnClientError(Exception exception)
-        {
-            base.OnClientError(exception);
-        }
-        
-        public override void OnClientNotReady()
-        {
-            base.OnClientNotReady();
-        }
-
-        public override void OnClientNotReady(NetworkConnection conn)
-        {
-            base.OnClientNotReady(conn);
-        }
-
-        
     }
 }

@@ -9,6 +9,7 @@ namespace Roots
         {
             base.BeforeCreateContext();
         
+            DontDestroyOnLoad(this);
         }
     }
 }

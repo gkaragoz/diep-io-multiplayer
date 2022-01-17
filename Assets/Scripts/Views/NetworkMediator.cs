@@ -17,14 +17,15 @@ namespace Views
 
             _view._.OnServerConnected += OnServerConnectedListener;
             _view._.OnServerDisconnected += OnServerDisconnectedListener;
+            _view._.OnServerAddedPlayer += OnServerAddedPlayerListener;
             
-            _networkSignals.StartHost.AddListener(OnStartHost);
-            _networkSignals.StartClient.AddListener(OnStartClient);
-            _networkSignals.StartServer.AddListener(OnStartServer);
+            _networkSignals.StartHost.AddListener(OnStartHostListener);
+            _networkSignals.StartClient.AddListener(OnStartClientListener);
+            _networkSignals.StartServer.AddListener(OnStartServerListener);
             
-            _networkSignals.StopHost.AddListener(OnStopHost);
-            _networkSignals.StopClient.AddListener(OnStopClient);
-            _networkSignals.StopServer.AddListener(OnStopServer);
+            _networkSignals.StopHost.AddListener(OnStopHostListener);
+            _networkSignals.StopClient.AddListener(OnStopClientListener);
+            _networkSignals.StopServer.AddListener(OnStopServerListener);
         }
 
         public override void OnRemove()
@@ -33,52 +34,58 @@ namespace Views
             
             _view._.OnServerConnected -= OnServerConnectedListener;
             _view._.OnServerDisconnected -= OnServerDisconnectedListener;
+            _view._.OnServerAddedPlayer -= OnServerAddedPlayerListener;
             
-            _networkSignals.StartHost.RemoveListener(OnStartHost);
-            _networkSignals.StartClient.RemoveListener(OnStartClient);
-            _networkSignals.StartServer.RemoveListener(OnStartServer);
+            _networkSignals.StartHost.RemoveListener(OnStartHostListener);
+            _networkSignals.StartClient.RemoveListener(OnStartClientListener);
+            _networkSignals.StartServer.RemoveListener(OnStartServerListener);
             
-            _networkSignals.StopHost.RemoveListener(OnStopHost);
-            _networkSignals.StopClient.RemoveListener(OnStopClient);
-            _networkSignals.StopServer.RemoveListener(OnStopServer);
+            _networkSignals.StopHost.RemoveListener(OnStopHostListener);
+            _networkSignals.StopClient.RemoveListener(OnStopClientListener);
+            _networkSignals.StopServer.RemoveListener(OnStopServerListener);
         }
 
         private void OnServerConnectedListener(NetworkConnection connection)
         {
-            Debug.LogWarning("ServerConnectedListener: " + connection);
+            _networkSignals.ClientConnected.Dispatch(connection);
         }
 
         private void OnServerDisconnectedListener(NetworkConnection connection)
         {
-            Debug.LogWarning("ServerDisconnectedListener: " + connection);
+            _networkSignals.ClientDisconnected.Dispatch(connection);
+        }
+        
+        private void OnServerAddedPlayerListener(NetworkConnection connection)
+        {
+            Debug.LogWarning("ServerAddedPlayerListener: " + connection);            
         }
 
-        private void OnStartHost()
+        private void OnStartHostListener()
         {
             _view._.StartHost();
         }
 
-        private void OnStartClient()
+        private void OnStartClientListener()
         {
             _view._.StartClient();
         }
 
-        private void OnStartServer()
+        private void OnStartServerListener()
         {
             _view._.StartServer();
         }
 
-        private void OnStopHost()
+        private void OnStopHostListener()
         {
             _view._.StopHost();
         }
 
-        private void OnStopClient()
+        private void OnStopClientListener()
         {
             _view._.StopClient();
         }
 
-        private void OnStopServer()
+        private void OnStopServerListener()
         {
             _view._.StopServer();
         }
