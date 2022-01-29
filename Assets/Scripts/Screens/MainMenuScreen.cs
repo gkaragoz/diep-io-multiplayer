@@ -54,7 +54,7 @@ namespace Screens
         
         public void OnClick_JoinGame()
         {
-            this.Log("Trying to join game.");
+            this.Log("RoomListScreen is going to be opened.");
 
             UIEvents.HideScreen?.Invoke(ScreenType);
             UIEvents.ShowScreen?.Invoke(ScreenType.RoomList);
