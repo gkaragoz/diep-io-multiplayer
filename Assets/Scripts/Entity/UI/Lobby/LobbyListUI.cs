@@ -3,12 +3,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Entity.UI.Room
+namespace Entity.UI.Lobby
 {
-    public class RoomListItemUI : MonoBehaviour
+    public class LobbyListUI : MonoBehaviour
     {
         [SerializeField] private TMP_Text _txtId;
-        [SerializeField] private TMP_Text _txtRoomName;
+        [SerializeField] private TMP_Text _txtLobbyName;
         [SerializeField] private TMP_Text _txtOwnerName;
         [SerializeField] private TMP_Text _txtPlayersCount;
 
@@ -21,12 +21,12 @@ namespace Entity.UI.Room
 
         private string _id;
 
-        public void Initialize(RoomListItem item)
+        public void Initialize(LobbyListItem item)
         {
             _id = item.Id;
             
             SetId(item.Id);
-            SetRoomName(item.RoomName);
+            SetLobbyName(item.LobbyName);
             SetOwnerName(item.OwnerName);
             SetPlayersCount(item.CurrentPlayersCount, item.MaxPlayersCount);
             SetIsPrivate(item.IsPrivate);
@@ -46,9 +46,9 @@ namespace Entity.UI.Room
             _txtId.text = $"#{id}";
         }
 
-        private void SetRoomName(string roomName)
+        private void SetLobbyName(string lobbyName)
         {
-            _txtRoomName.text = $"{roomName}";
+            _txtLobbyName.text = $"{lobbyName}";
         }
 
         private void SetOwnerName(string ownerName)
@@ -92,7 +92,7 @@ namespace Entity.UI.Room
 
         private void OnClick_Join()
         {
-            NetworkEvents.JoinRoom?.Invoke(_id);
+            NetworkEvents.JoinLobby?.Invoke(_id);
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using Entity.Logger;
 using Enums;
 using Events;
-using Mirror;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,41 +22,22 @@ namespace Screens
 
         #endregion
 
-        private void OnEnable()
-        {
-            NetworkEvents.OnClientConnectedToServer += OnClientConnectedToServerListener;
-            NetworkEvents.OnClientDisconnectedFromServer += OnClientDisconnectedFromServerListener;
-        }
-
-        private void OnDisable()
-        {
-            NetworkEvents.OnClientConnectedToServer -= OnClientConnectedToServerListener;
-            NetworkEvents.OnClientDisconnectedFromServer -= OnClientDisconnectedFromServerListener;
-        }
-        
-        private void OnClientConnectedToServerListener(NetworkConnection connection)
-        {
-        }
-
-        private void OnClientDisconnectedFromServerListener(NetworkConnection connection)
-        {
-        }
-
         #region Editor Callbacks
 
         public void OnClick_StartGame()
         {
-            this.Log("Trying to start game.");
-            
-            NetworkEvents.StartHost?.Invoke();
+            this.Log($"{ScreenType.Lobby} is going to be opened.");
+
+            UIEvents.HideScreen?.Invoke(ScreenType);
+            UIEvents.ShowScreen?.Invoke(ScreenType.Lobby);
         }
         
         public void OnClick_JoinGame()
         {
-            this.Log("RoomListScreen is going to be opened.");
+            this.Log($"{ScreenType.Lobbies} is going to be opened.");
 
             UIEvents.HideScreen?.Invoke(ScreenType);
-            UIEvents.ShowScreen?.Invoke(ScreenType.RoomList);
+            UIEvents.ShowScreen?.Invoke(ScreenType.Lobbies);
         }
 
         #endregion

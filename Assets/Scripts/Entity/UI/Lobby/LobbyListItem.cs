@@ -1,9 +1,9 @@
-﻿namespace Entity.UI.Room
+﻿namespace Entity.UI.Lobby
 {
-    public class RoomListItem
+    public class LobbyListItem
     {
         public string Id { get; set; }
-        public string RoomName { get; set; }
+        public string LobbyName { get; set; }
         public string OwnerName { get; set; }
 
         public int CurrentPlayersCount { get; set; }

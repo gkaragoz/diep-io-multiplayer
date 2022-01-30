@@ -3,6 +3,7 @@
     public enum ScreenType
     {
         MainMenu = 5,
-        RoomList = 10
+        Lobbies = 10,
+        Lobby = 15,
     }
 }

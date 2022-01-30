@@ -8,9 +8,9 @@ namespace Entity
     {
         private void OnEnable()
         {
-            NetworkEvents.StartHost += StartHost;
-            NetworkEvents.StartClient += StartClient;
-            NetworkEvents.StartServer += StartServer;
+            NetworkEvents.StartHost += StartHostListener;
+            NetworkEvents.StartClient += StartClientListener;
+            NetworkEvents.StartServer += StartServerListener;
 
             NetworkEvents.StopHost += StopServer;
             NetworkEvents.StopClient += StopClient;
@@ -22,6 +22,18 @@ namespace Entity
         private void OnDisable()
         {
             NetworkEvents.ChangeNetworkAddress -= OnChangeNetworkAddressListener;
+        }
+        
+        private void StartHostListener()
+        {
+        }
+
+        private void StartClientListener()
+        {
+        }
+
+        private void StartServerListener()
+        {
         }
         
         private void OnChangeNetworkAddressListener(string networkAddress)
