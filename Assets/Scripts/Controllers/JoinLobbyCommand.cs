@@ -71,7 +71,6 @@ namespace Controllers
                 {
                     SteamId = memberSteamId.m_SteamID,
                     Name = name,
-                    Status = (LobbyPlayerStatus)Enum.Parse(typeof(LobbyPlayerStatus), SteamMatchmaking.GetLobbyData(lobbySteamId, memberSteamId.m_SteamID.ToString())),
                 });
             }
             
