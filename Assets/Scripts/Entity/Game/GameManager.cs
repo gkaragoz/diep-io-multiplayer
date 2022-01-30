@@ -40,6 +40,7 @@ namespace Entity.Game
                 new ListLobbiesCommand(),
                 new LeaveLobbyCommand(),
                 new JoinLobbyCommand(),
+                new PlayerConnectedToLobbyCommand()
             };
         }
 

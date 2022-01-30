@@ -35,8 +35,11 @@ namespace Events
         public static Action OnClientStopped { get; set; }
         public static Action OnServerStopped { get; set; }
         
-        public static Action<NetworkConnection> OnClientConnectedToServer { get; set; }
-        public static Action<NetworkConnection> OnClientDisconnectedFromServer { get; set; }
+        public static Action<NetworkConnection> OnServer_ClientConnectedToServer { get; set; }
+        public static Action<NetworkConnection> OnServer_ClientDisconnectedFromServer { get; set; }
+        
+        public static Action<NetworkConnection> OnClient_ClientConnectedToServer { get; set; }
+        public static Action<NetworkConnection> OnClient_ClientDisconnectedFromServer { get; set; }
         
         #endregion
     }

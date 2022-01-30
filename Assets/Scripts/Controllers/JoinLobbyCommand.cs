@@ -46,34 +46,11 @@ namespace Controllers
         {
             this.LogWarning("OnLobbyEntered");
             
-            // Everyone
-            var lobbyScreen = (LobbyScreen) UIEvents.ShowScreen?.Invoke(ScreenType.Lobby);
-            var lobbySteamId = new CSteamID(callback.m_ulSteamIDLobby);
-
             PlayerDataController.Instance.SetLobbySteamId(callback.m_ulSteamIDLobby);
-
-            var lobbyPlayerList = new List<LobbyPlayer>();
-
-            var membersCount = SteamMatchmaking.GetNumLobbyMembers(lobbySteamId);
-            for (int ii = 0; ii < membersCount; ii++)
-            {
-                var memberSteamId = SteamMatchmaking.GetLobbyMemberByIndex(lobbySteamId, ii);
-
-                var name = string.Empty;
-                if (memberSteamId == SteamUser.GetSteamID())
-                    name = SteamFriends.GetPersonaName();
-                else
-                    name = SteamFriends.GetFriendPersonaName(memberSteamId);
-                
-                lobbyPlayerList.Add(new LobbyPlayer()
-                {
-                    SteamId = memberSteamId.m_SteamID,
-                    Name = name,
-                });
-            }
             
-            lobbyScreen.Initialize(false, lobbyPlayerList);
-
+            // Everyone
+            // Do nothing.
+            
             // Clients
             if (NetworkServer.active)
                 return;

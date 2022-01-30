@@ -36,9 +36,9 @@ namespace Entity
         {
             base.OnServerConnect(conn);
             
-            this.LogWarning($"OnClientConnectedToServer, ConnectionId: {conn.connectionId}");
+            this.LogWarning($"OnServer_ClientConnectedToServer, ConnectionId: {conn.connectionId}");
             
-            NetworkEvents.OnClientConnectedToServer?.Invoke(conn);
+            NetworkEvents.OnServer_ClientConnectedToServer?.Invoke(conn);
         }
         
         /// <summary>Called on the server when a client disconnects.</summary>
@@ -46,9 +46,29 @@ namespace Entity
         {
             base.OnServerDisconnect(conn);
 
-            this.LogWarning($"OnClientDisconnectedFromServer, ConnectionId: {conn.connectionId}");
+            this.LogWarning($"OnServer_ClientDisconnectedFromServer, ConnectionId: {conn.connectionId}");
 
-            NetworkEvents.OnClientDisconnectedFromServer?.Invoke(conn);
+            NetworkEvents.OnServer_ClientDisconnectedFromServer?.Invoke(conn);
+        }
+
+        /// <summary>Called on the client when connected to a server. By default it sets client as ready and adds a player.</summary>
+        public override void OnClientConnect()
+        {
+            base.OnClientConnect();
+            
+            this.LogWarning($"OnClient_ClientConnectedToServer, ConnectionId: {NetworkClient.connection.connectionId}");
+
+            NetworkEvents.OnClient_ClientConnectedToServer?.Invoke(NetworkClient.connection);
+        }
+
+        /// <summary>Called on clients when disconnected from a server.</summary>
+        public override void OnClientDisconnect()
+        {
+            base.OnClientDisconnect();
+            
+            this.LogWarning($"OnClient_ClientDisconnectedFromServer, ConnectionId: {NetworkClient.connection.connectionId}");
+
+            NetworkEvents.OnClient_ClientDisconnectedFromServer?.Invoke(NetworkClient.connection);
         }
 
         /// <summary>This is invoked when a host is started.</summary>

@@ -24,14 +24,14 @@ namespace Entity.UI.Lobby
 
         private void OnEnable()
         {
-            NetworkEvents.OnClientConnectedToServer += OnClientConnectedToServerListener;
-            NetworkEvents.OnClientDisconnectedFromServer += OnClientDisconnectedFromServerListener;
+            NetworkEvents.OnServer_ClientConnectedToServer += OnClientConnectedToServerListener;
+            NetworkEvents.OnServer_ClientDisconnectedFromServer += OnClientDisconnectedFromServerListener;
         }
         
         private void OnDisable()
         {
-            NetworkEvents.OnClientConnectedToServer -= OnClientConnectedToServerListener;
-            NetworkEvents.OnClientDisconnectedFromServer -= OnClientDisconnectedFromServerListener;
+            NetworkEvents.OnServer_ClientConnectedToServer -= OnClientConnectedToServerListener;
+            NetworkEvents.OnServer_ClientDisconnectedFromServer -= OnClientDisconnectedFromServerListener;
         }
         
         private void OnClientConnectedToServerListener(NetworkConnection connection)
