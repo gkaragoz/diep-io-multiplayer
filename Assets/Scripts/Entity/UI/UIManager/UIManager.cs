@@ -61,24 +61,28 @@ namespace Entity.UI.UIManager
             return ScreensDict[screenType];
         }
 
-        public void ShowScreen(ScreenType screenType)
+        public IScreen ShowScreen(ScreenType screenType)
         {
             var screen = GetScreen(screenType);
-
+        
             if (screen == null)
                 throw new NullReferenceException(message: $"{screenType} value cannot be null.");
             
             screen.OnShowScreen();
+        
+            return screen;
         }
-
-        public void HideScreen(ScreenType screenType)
+        
+        public IScreen HideScreen(ScreenType screenType)
         {
             var screen = GetScreen(screenType);
-
+        
             if (screen == null)
                 throw new NullReferenceException($"{screenType} value cannot be null.");
             
             screen.OnHideScreen();
+        
+            return screen;
         }
     }
 }

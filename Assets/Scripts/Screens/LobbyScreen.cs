@@ -27,6 +27,8 @@ namespace Screens
 
         public void Initialize(bool isOwner, List<LobbyPlayer> lobbyPlayerList)
         {
+            _lobbyPlayerList = new List<LobbyPlayerUI>();
+            
             foreach (var lobbyPlayer in lobbyPlayerList)
                 CreateLobbyPlayer(lobbyPlayer);
             

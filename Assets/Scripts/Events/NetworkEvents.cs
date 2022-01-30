@@ -17,7 +17,8 @@ namespace Events
         public static Action StopServer{ get; set; }
         public static Action StopClient { get; set; }
         
-        public static Action<string> JoinLobby { get; set; }
+        public static Action CreateLobbyCommand { get; set; }
+        public static Action<string> JoinLobbyCommand { get; set; }
 
         #endregion
 

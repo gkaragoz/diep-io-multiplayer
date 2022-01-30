@@ -2,7 +2,7 @@
 {
     public class LobbyPlayer
     {
-        public string Id { get; set; }
+        public ulong SteamId { get; set; }
         public string Name { get; set; }
         public bool IsReady { get; set; }
     }

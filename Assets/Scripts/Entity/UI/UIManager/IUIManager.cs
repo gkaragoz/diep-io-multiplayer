@@ -9,7 +9,7 @@ namespace Entity.UI.UIManager
         void Setup();
         Dictionary<ScreenType, IScreen> ScreensDict { get; }
         
-        void ShowScreen(ScreenType screenType);
-        void HideScreen(ScreenType screenType);
+        IScreen ShowScreen(ScreenType screenType);
+        IScreen HideScreen(ScreenType screenType);
     }
 }

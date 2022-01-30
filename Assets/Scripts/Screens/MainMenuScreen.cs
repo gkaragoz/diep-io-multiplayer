@@ -26,10 +26,9 @@ namespace Screens
 
         public void OnClick_StartGame()
         {
-            this.Log($"{ScreenType.Lobby} is going to be opened.");
-
             UIEvents.HideScreen?.Invoke(ScreenType);
-            UIEvents.ShowScreen?.Invoke(ScreenType.Lobby);
+            
+            NetworkEvents.CreateLobbyCommand?.Invoke();
         }
         
         public void OnClick_JoinGame()

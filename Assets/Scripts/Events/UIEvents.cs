@@ -1,6 +1,6 @@
 ﻿using System;
+using Entity.UI.Screen;
 using Enums;
-using Mirror;
 
 namespace Events
 {
@@ -8,8 +8,8 @@ namespace Events
     {
         #region Actions
 
-        public static Action<ScreenType> ShowScreen { get; set; }
-        public static Action<ScreenType> HideScreen { get; set; }
+        public static Func<ScreenType, IScreen> ShowScreen { get; set; }
+        public static Func<ScreenType, IScreen> HideScreen { get; set; }
 
         #endregion
     }

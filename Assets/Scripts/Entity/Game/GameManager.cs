@@ -1,4 +1,7 @@
-﻿using Entity.UI.UIManager;
+﻿using System.Collections.Generic;
+using Controllers;
+using Entity.Controllers;
+using Entity.UI.UIManager;
 using Enums;
 using UnityEngine;
 
@@ -7,8 +10,9 @@ namespace Entity.Game
     public class GameManager : MonoBehaviour
     {
         private UIManager _uiManager;
-
-        private void Awake()
+        private List<ICommand> _commandsList;
+        
+        private void Start()
         {
             SetReferences();
 
@@ -25,6 +29,11 @@ namespace Entity.Game
         private void SetupAll()
         {
             _uiManager.Setup();
+
+            _commandsList = new List<ICommand>
+            {
+                new CreateLobbyCommand()
+            };
         }
 
         private void StartGame()

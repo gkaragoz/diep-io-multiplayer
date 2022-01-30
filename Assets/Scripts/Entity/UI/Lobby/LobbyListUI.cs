@@ -92,7 +92,7 @@ namespace Entity.UI.Lobby
 
         private void OnClick_Join()
         {
-            NetworkEvents.JoinLobby?.Invoke(_id);
+            NetworkEvents.JoinLobbyCommand?.Invoke(_id);
         }
     }
 }
