@@ -22,6 +22,7 @@ namespace Screens
 
         public void Initialize(List<LobbyListItem> lobbyListItems)
         {
+            ClearList();
             _lobbyList = new List<LobbyListUI>();
             
             foreach (var lobbyListItem in lobbyListItems)
@@ -38,6 +39,9 @@ namespace Screens
 
         private void ClearList()
         {
+            if (_lobbyList == null)
+                return;
+            
             foreach (var lobbyListUI in _lobbyList)
                 Destroy(lobbyListUI.gameObject);
         }
@@ -52,8 +56,6 @@ namespace Screens
 
         public void OnClick_RefreshLobbies()
         {
-            ClearList();
-
             NetworkEvents.ListLobbiesCommand?.Invoke();
         }
         

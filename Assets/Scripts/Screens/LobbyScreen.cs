@@ -27,6 +27,7 @@ namespace Screens
 
         public void Initialize(bool isOwner, List<LobbyPlayer> lobbyPlayerList)
         {
+            ClearList();
             _lobbyPlayerList = new List<LobbyPlayerUI>();
             
             foreach (var lobbyPlayer in lobbyPlayerList)
@@ -54,6 +55,9 @@ namespace Screens
 
         private void ClearList()
         {
+            if (_lobbyPlayerList == null)
+                return;;
+            
             foreach (var lobbyPlayerUI in _lobbyPlayerList)
                 Destroy(lobbyPlayerUI.gameObject);
         }
@@ -62,8 +66,6 @@ namespace Screens
 
         public void OnClick_BackToMainMenu()
         {
-            ClearList();
-            
             UIEvents.HideScreen?.Invoke(ScreenType);
             
             NetworkEvents.LeaveLobbyCommand?.Invoke();
