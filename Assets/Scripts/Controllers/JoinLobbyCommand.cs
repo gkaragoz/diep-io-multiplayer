@@ -55,7 +55,6 @@ namespace Controllers
             var lobbyPlayerList = new List<LobbyPlayer>();
 
             var membersCount = SteamMatchmaking.GetNumLobbyMembers(lobbySteamId);
-
             for (int ii = 0; ii < membersCount; ii++)
             {
                 var memberSteamId = SteamMatchmaking.GetLobbyMemberByIndex(lobbySteamId, ii);
@@ -63,8 +62,8 @@ namespace Controllers
                 lobbyPlayerList.Add(new LobbyPlayer()
                 {
                     SteamId = memberSteamId.m_SteamID,
-                    Name = SteamMatchmaking.GetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), NetworkConstants.LOBBY_OWNER_NAME_KEY),
-                    IsReady = bool.Parse(SteamMatchmaking.GetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), memberSteamId.m_SteamID.ToString())),
+                    Name = SteamMatchmaking.GetLobbyData(lobbySteamId, NetworkConstants.LOBBY_OWNER_NAME_KEY),
+                    IsReady = bool.Parse(SteamMatchmaking.GetLobbyData(lobbySteamId, memberSteamId.m_SteamID.ToString())),
                 });
             }
             
@@ -76,14 +75,6 @@ namespace Controllers
             // Clients
             if (NetworkServer.active)
                 return;
-            
-            // Add yourself.
-            lobbyPlayerList.Add(new LobbyPlayer()
-            {
-                SteamId = SteamUser.GetSteamID().m_SteamID,
-                Name = SteamFriends.GetPersonaName(),
-                IsReady = false,
-            });
             
             lobbyScreen.Initialize(false, lobbyPlayerList);
 
