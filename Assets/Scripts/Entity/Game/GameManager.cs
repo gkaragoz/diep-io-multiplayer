@@ -39,7 +39,8 @@ namespace Entity.Game
                 new CreateLobbyCommand(),
                 new ListLobbiesCommand(),
                 new LeaveLobbyCommand(),
-                new JoinLobbyCommand()
+                new JoinLobbyCommand(),
+                new UpdateLobbyCommand()
             };
         }
 

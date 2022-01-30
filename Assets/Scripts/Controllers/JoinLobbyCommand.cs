@@ -50,8 +50,6 @@ namespace Controllers
             var lobbyScreen = (LobbyScreen) UIEvents.ShowScreen?.Invoke(ScreenType.Lobby);
             var lobbySteamId = new CSteamID(callback.m_ulSteamIDLobby);
 
-            SteamMatchmaking.SetLobbyData(lobbySteamId, SteamUser.GetSteamID().ToString(), false.ToString());
-            
             PlayerDataController.Instance.SetLobbySteamId(callback.m_ulSteamIDLobby);
 
             var lobbyPlayerList = new List<LobbyPlayer>();
