@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Constants;
 using Entity.Controllers;
 using Entity.Logger;
+using Entity.Player;
 using Entity.UI.Lobby;
 using Enums;
 using Events;
@@ -17,8 +18,6 @@ namespace Controllers
         protected Callback<LobbyCreated_t> LobbyCreated;
         protected Callback<GameLobbyJoinRequested_t> JoinRequest;
         protected Callback<LobbyEnter_t> LobbyEntered;
-
-        public ulong CurrentLobbyId { get; protected set; }
 
         private bool IsPrivate
         {
@@ -85,7 +84,7 @@ namespace Controllers
             // Everyone
             var lobbyScreen = UIEvents.ShowScreen?.Invoke(ScreenType.Lobby);
 
-            CurrentLobbyId = callback.m_ulSteamIDLobby;
+            PlayerDataController.Instance.SetLobbySteamId(callback.m_ulSteamIDLobby);
             
             if (lobbyScreen is LobbyScreen screen)
                 screen.Initialize(true, new List<LobbyPlayer>

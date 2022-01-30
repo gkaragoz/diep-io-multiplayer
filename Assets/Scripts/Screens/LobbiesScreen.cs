@@ -36,12 +36,25 @@ namespace Screens
             _lobbyList.Add(lobbyListItemUI);
         }
 
+        private void ClearList()
+        {
+            foreach (var lobbyListUI in _lobbyList)
+                Destroy(lobbyListUI.gameObject);
+        }
+
         #region Editor Callbacks
 
         public void OnClick_BackToMainMenu()
         {
             UIEvents.HideScreen?.Invoke(ScreenType);
             UIEvents.ShowScreen?.Invoke(ScreenType.MainMenu);
+        }
+
+        public void OnClick_RefreshLobbies()
+        {
+            ClearList();
+            
+            NetworkEvents.ListLobbiesCommand?.Invoke();
         }
         
         #endregion

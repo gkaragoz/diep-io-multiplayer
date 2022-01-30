@@ -21,6 +21,7 @@ namespace Events
         public static Action<ELobbyType> CreateLobbyCommand { get; set; }
         public static Action ListLobbiesCommand { get; set; }
         public static Action<ulong> JoinLobbyCommand { get; set; }
+        public static Action LeaveLobbyCommand { get; set; }
 
         #endregion
 

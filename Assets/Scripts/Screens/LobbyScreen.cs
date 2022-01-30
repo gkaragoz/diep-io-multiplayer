@@ -52,12 +52,21 @@ namespace Screens
             _lobbyPlayerList.Add(lobbyListItemUI);
         }
 
+        private void ClearList()
+        {
+            foreach (var lobbyPlayerUI in _lobbyPlayerList)
+                Destroy(lobbyPlayerUI.gameObject);
+        }
+
         #region Editor Callbacks
 
         public void OnClick_BackToMainMenu()
         {
+            ClearList();
+            
             UIEvents.HideScreen?.Invoke(ScreenType);
-            UIEvents.ShowScreen?.Invoke(ScreenType.MainMenu);
+            
+            NetworkEvents.LeaveLobbyCommand?.Invoke();
         }
         
         #endregion
