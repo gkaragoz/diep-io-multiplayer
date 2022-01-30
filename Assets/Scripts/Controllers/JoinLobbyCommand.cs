@@ -45,11 +45,13 @@ namespace Controllers
         private void OnLobbyEntered(LobbyEnter_t callback)
         {
             this.LogWarning("OnLobbyEntered");
-
+            
             // Everyone
             var lobbyScreen = (LobbyScreen) UIEvents.ShowScreen?.Invoke(ScreenType.Lobby);
             var lobbySteamId = new CSteamID(callback.m_ulSteamIDLobby);
 
+            SteamMatchmaking.SetLobbyData(lobbySteamId, SteamUser.GetSteamID().ToString(), false.ToString());
+            
             PlayerDataController.Instance.SetLobbySteamId(callback.m_ulSteamIDLobby);
 
             var lobbyPlayerList = new List<LobbyPlayer>();
@@ -59,24 +61,25 @@ namespace Controllers
             {
                 var memberSteamId = SteamMatchmaking.GetLobbyMemberByIndex(lobbySteamId, ii);
 
+                var name = string.Empty;
+                if (memberSteamId == SteamUser.GetSteamID())
+                    name = SteamFriends.GetPersonaName();
+                else
+                    name = SteamFriends.GetFriendPersonaName(memberSteamId);
+                
                 lobbyPlayerList.Add(new LobbyPlayer()
                 {
                     SteamId = memberSteamId.m_SteamID,
-                    Name = SteamMatchmaking.GetLobbyData(lobbySteamId, NetworkConstants.LOBBY_OWNER_NAME_KEY),
-                    IsReady = bool.Parse(SteamMatchmaking.GetLobbyData(lobbySteamId, memberSteamId.m_SteamID.ToString())),
+                    Name = name,
+                    Status = (LobbyPlayerStatus)Enum.Parse(typeof(LobbyPlayerStatus), SteamMatchmaking.GetLobbyData(lobbySteamId, memberSteamId.m_SteamID.ToString())),
                 });
             }
             
-            SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), SteamUser.GetSteamID().ToString(), false.ToString());
-            
-            if (NetworkServer.active)
-                lobbyScreen.Initialize(false, lobbyPlayerList);
+            lobbyScreen.Initialize(false, lobbyPlayerList);
 
             // Clients
             if (NetworkServer.active)
                 return;
-            
-            lobbyScreen.Initialize(false, lobbyPlayerList);
 
             NetworkEvents.ChangeNetworkAddress?.Invoke(SteamMatchmaking.GetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), NetworkConstants.HOST_ADDRESS_KEY));
             NetworkEvents.StartClient?.Invoke();

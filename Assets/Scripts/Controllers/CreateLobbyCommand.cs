@@ -59,7 +59,7 @@ namespace Controllers
             SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), NetworkConstants.LOBBY_OWNER_NAME_KEY, $"{SteamFriends.GetPersonaName()}");
             SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), NetworkConstants.LOBBY_TYPE_KEY, $"{IsPrivate}");
             SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), NetworkConstants.LOBBY_STATUS_KEY, $"{LobbyStatus.AVAILABLE.ToString()}");
-            SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), SteamUser.GetSteamID().ToString(), true.ToString());
+            SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), SteamUser.GetSteamID().ToString(), LobbyPlayerStatus.READY.ToString());
         }
 
         private void CreateLobbyListener(ELobbyType lobbyType)

@@ -62,7 +62,7 @@ namespace Controllers
         private void ListLobbiesListener()
         {
             this.Log("RequestLobbyList");
-            SteamMatchmaking.AddRequestLobbyListStringFilter(NetworkConstants.LOBBY_OWNER_NAME_KEY, "Whoaa", ELobbyComparison.k_ELobbyComparisonEqualToOrGreaterThan);
+            SteamMatchmaking.AddRequestLobbyListStringFilter(NetworkConstants.LOBBY_OWNER_NAME_KEY, "Enj", ELobbyComparison.k_ELobbyComparisonEqualToOrGreaterThan);
             RequestLobbyList.Set(SteamMatchmaking.RequestLobbyList());
         }
     }

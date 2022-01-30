@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using Enums;
+using TMPro;
 using UnityEngine;
 
 namespace Entity.UI.Lobby
@@ -15,7 +16,7 @@ namespace Entity.UI.Lobby
             _lobbyPlayer = lobbyPlayer;
             
             SetPlayerName(lobbyPlayer.Name);
-            SetStatus(lobbyPlayer.IsReady);
+            SetStatus(lobbyPlayer.Status);
         }
 
         private void SetPlayerName(string playerName)
@@ -23,9 +24,9 @@ namespace Entity.UI.Lobby
             _txtPlayerName.text = $"{playerName}";
         }
 
-        private void SetStatus(bool isReady)
+        private void SetStatus(LobbyPlayerStatus status)
         {
-            if (isReady)
+            if (status == LobbyPlayerStatus.READY)
                 _txtStatus.text = "READY";
             else
                 _txtStatus.text = "NOT READY";
@@ -33,7 +34,7 @@ namespace Entity.UI.Lobby
 
         public bool IsReady()
         {
-            return _lobbyPlayer.IsReady;
+            return _lobbyPlayer.Status == LobbyPlayerStatus.READY;
         }
     }
 }
