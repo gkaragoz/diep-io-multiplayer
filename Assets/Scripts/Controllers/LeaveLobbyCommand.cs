@@ -23,6 +23,8 @@ namespace Controllers
             this.Log("LeaveLobby");
             
             SteamMatchmaking.LeaveLobby(new CSteamID(lobbySteamId));
+            NetworkEvents.StopClient?.Invoke();
+            
             PlayerDataController.Instance.SetLobbySteamId(0);
 
             UIEvents.ShowScreen?.Invoke(ScreenType.MainMenu);
