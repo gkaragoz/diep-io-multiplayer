@@ -38,7 +38,7 @@ namespace Entity
             
             this.LogWarning($"OnClientConnectedToServer, ConnectionId: {conn.connectionId}");
          
-            CMD_SendInfo();
+            CMD_SendConnectionInfo();
             
             NetworkEvents.OnClientConnectedToServer?.Invoke(conn);
         }
@@ -49,6 +49,8 @@ namespace Entity
             base.OnServerDisconnect(conn);
 
             this.LogWarning($"OnClientDisconnectedFromServer, ConnectionId: {conn.connectionId}");
+            
+            CMD_SendDCInfo();
 
             NetworkEvents.OnClientDisconnectedFromServer?.Invoke(conn);
         }
