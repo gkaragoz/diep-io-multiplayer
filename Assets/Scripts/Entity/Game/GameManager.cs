@@ -32,7 +32,8 @@ namespace Entity.Game
 
             _commandsList = new List<ICommand>
             {
-                new CreateLobbyCommand()
+                new CreateLobbyCommand(),
+                new ListLobbiesCommand()
             };
         }
 

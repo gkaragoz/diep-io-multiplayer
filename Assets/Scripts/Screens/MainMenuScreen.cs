@@ -1,6 +1,7 @@
 ﻿using Entity.Logger;
 using Enums;
 using Events;
+using Steamworks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,7 +29,7 @@ namespace Screens
         {
             UIEvents.HideScreen?.Invoke(ScreenType);
             
-            NetworkEvents.CreateLobbyCommand?.Invoke();
+            NetworkEvents.CreateLobbyCommand?.Invoke(ELobbyType.k_ELobbyTypePublic);
         }
         
         public void OnClick_JoinGame()
@@ -36,7 +37,8 @@ namespace Screens
             this.Log($"{ScreenType.Lobbies} is going to be opened.");
 
             UIEvents.HideScreen?.Invoke(ScreenType);
-            UIEvents.ShowScreen?.Invoke(ScreenType.Lobbies);
+            
+            NetworkEvents.ListLobbiesCommand?.Invoke();
         }
 
         #endregion

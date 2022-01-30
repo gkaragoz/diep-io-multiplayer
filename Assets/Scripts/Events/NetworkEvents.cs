@@ -1,5 +1,6 @@
 ﻿using System;
 using Mirror;
+using Steamworks;
 
 namespace Events
 {
@@ -17,8 +18,9 @@ namespace Events
         public static Action StopServer{ get; set; }
         public static Action StopClient { get; set; }
         
-        public static Action CreateLobbyCommand { get; set; }
-        public static Action<string> JoinLobbyCommand { get; set; }
+        public static Action<ELobbyType> CreateLobbyCommand { get; set; }
+        public static Action ListLobbiesCommand { get; set; }
+        public static Action<ulong> JoinLobbyCommand { get; set; }
 
         #endregion
 

@@ -1,4 +1,6 @@
-﻿using Events;
+﻿using System;
+using Enums;
+using Events;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,19 +21,19 @@ namespace Entity.UI.Lobby
         
         [SerializeField] private Button _btnJoin;
 
-        private string _id;
+        private ulong _id;
 
         public void Initialize(LobbyListItem item)
         {
-            _id = item.Id;
+            _id = item.LobbySteamId;
             
-            SetId(item.Id);
+            SetId(item.LobbySteamId.ToString());
             SetLobbyName(item.LobbyName);
             SetOwnerName(item.OwnerName);
             SetPlayersCount(item.CurrentPlayersCount, item.MaxPlayersCount);
             SetIsPrivate(item.IsPrivate);
-            SetIsPlaying(item.IsPlaying, item.IsFull);
-            SetJoinButton(item.IsPlaying, item.IsFull);
+            SetStatus(item.Status);
+            SetJoinButton(item.Status);
             
             _btnJoin.onClick.AddListener(OnClick_Join);
         }
@@ -75,19 +77,27 @@ namespace Entity.UI.Lobby
             }
         }
 
-        private void SetIsPlaying(bool isPlaying, bool isRoomFull)
+        private void SetStatus(LobbyStatus lobbyStatus)
         {
-            if (isPlaying)
-                _txtStatus.text = "PLAYING";
-            else if (isRoomFull)
-                _txtStatus.text = "FULL";
-            else
-                _txtStatus.text = "AVAILABLE";
+            switch (lobbyStatus)
+            {
+                case LobbyStatus.AVAILABLE:
+                    _txtStatus.text = "AVAILABLE";
+                    break;
+                case LobbyStatus.PLAYING:
+                    _txtStatus.text = "PLAYING";
+                    break;
+                case LobbyStatus.FULL:
+                    _txtStatus.text = "FULL";
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(lobbyStatus), lobbyStatus, null);
+            }
         }
 
-        private void SetJoinButton(bool isPlaying, bool isRoomFull)
+        private void SetJoinButton(LobbyStatus lobbyStatus)
         {
-            _btnJoin.interactable = !isPlaying || !isRoomFull;
+            _btnJoin.interactable = lobbyStatus == LobbyStatus.AVAILABLE;
         }
 
         private void OnClick_Join()

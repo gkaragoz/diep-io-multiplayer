@@ -1,8 +1,10 @@
-﻿namespace Entity.UI.Lobby
+﻿using Enums;
+
+namespace Entity.UI.Lobby
 {
     public class LobbyListItem
     {
-        public string Id { get; set; }
+        public ulong LobbySteamId { get; set; }
         public string LobbyName { get; set; }
         public string OwnerName { get; set; }
 
@@ -11,7 +13,7 @@
         
         public bool IsPrivate { get; set; }
         
-        public bool IsPlaying { get; set; }
+        public LobbyStatus Status { get; set; }
 
         public bool IsFull => CurrentPlayersCount == MaxPlayersCount;
     }

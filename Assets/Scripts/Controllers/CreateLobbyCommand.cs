@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Constants;
 using Entity.Controllers;
 using Entity.Logger;
@@ -18,6 +19,30 @@ namespace Controllers
         protected Callback<LobbyEnter_t> LobbyEntered;
 
         public ulong CurrentLobbyId { get; protected set; }
+
+        private bool IsPrivate
+        {
+            get
+            {
+                switch (_lobbyType)
+                {
+                    case ELobbyType.k_ELobbyTypePrivate:
+                        return true;
+                    case ELobbyType.k_ELobbyTypeFriendsOnly:
+                        return true;
+                    case ELobbyType.k_ELobbyTypePublic:
+                        return false;
+                    case ELobbyType.k_ELobbyTypeInvisible:
+                        return false;
+                    case ELobbyType.k_ELobbyTypePrivateUnique:
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+        }
+        
+        private ELobbyType _lobbyType;
 
         public CreateLobbyCommand()
         {
@@ -41,6 +66,9 @@ namespace Controllers
             NetworkEvents.StartHost?.Invoke();
             SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), NetworkConstants.HOST_ADDRESS_KEY, SteamUser.GetSteamID().ToString());
             SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), NetworkConstants.LOBBY_NAME_KEY,$"{SteamFriends.GetPersonaName()} 's LOBBY" );
+            SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), NetworkConstants.LOBBY_OWNER_NAME_KEY,$"{SteamFriends.GetPersonaName()}" );
+            SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), NetworkConstants.LOBBY_TYPE,$"{IsPrivate}" );
+            SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), NetworkConstants.LOBBY_STATUS,$"{LobbyStatus.AVAILABLE.ToString()}" );
         }
         
         private void OnJoinRequest(GameLobbyJoinRequested_t callback)
@@ -78,11 +106,13 @@ namespace Controllers
             NetworkEvents.StartClient?.Invoke();
         }
 
-        private void CreateLobbyListener()
+        private void CreateLobbyListener(ELobbyType lobbyType)
         {
             this.Log("Trying to create lobby.");
 
-            SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypePublic, NetworkManager.singleton.maxConnections);
+            _lobbyType = lobbyType;
+                
+            SteamMatchmaking.CreateLobby(lobbyType, NetworkManager.singleton.maxConnections);
         }
     }
 }

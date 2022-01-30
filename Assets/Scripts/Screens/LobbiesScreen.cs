@@ -22,6 +22,8 @@ namespace Screens
 
         public void Initialize(List<LobbyListItem> lobbyListItems)
         {
+            _lobbyList = new List<LobbyListUI>();
+            
             foreach (var lobbyListItem in lobbyListItems)
                 CreateLobbyListItem(lobbyListItem);
         }
