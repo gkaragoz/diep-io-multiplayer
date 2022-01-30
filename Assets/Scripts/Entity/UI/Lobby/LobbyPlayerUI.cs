@@ -1,4 +1,7 @@
-﻿using Enums;
+﻿using System;
+using Enums;
+using Events;
+using Mirror;
 using TMPro;
 using UnityEngine;
 
@@ -17,6 +20,28 @@ namespace Entity.UI.Lobby
             
             SetPlayerName(lobbyPlayer.Name);
             SetStatus(lobbyPlayer.Status);
+        }
+
+        private void OnEnable()
+        {
+            NetworkEvents.OnClientConnectedToServer += OnClientConnectedToServerListener;
+            NetworkEvents.OnClientDisconnectedFromServer += OnClientDisconnectedFromServerListener;
+        }
+        
+        private void OnDisable()
+        {
+            NetworkEvents.OnClientConnectedToServer -= OnClientConnectedToServerListener;
+            NetworkEvents.OnClientDisconnectedFromServer -= OnClientDisconnectedFromServerListener;
+        }
+        
+        private void OnClientConnectedToServerListener(NetworkConnection connection)
+        {
+            Debug.LogWarning("ClientConnected to server test.");
+        }
+
+        private void OnClientDisconnectedFromServerListener(NetworkConnection connection)
+        {
+            Debug.LogWarning("ClientDisconnected from server test.");
         }
 
         private void SetPlayerName(string playerName)

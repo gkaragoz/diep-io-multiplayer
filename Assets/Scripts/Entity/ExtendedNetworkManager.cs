@@ -37,8 +37,6 @@ namespace Entity
             base.OnServerConnect(conn);
             
             this.LogWarning($"OnClientConnectedToServer, ConnectionId: {conn.connectionId}");
-         
-            CMD_SendConnectionInfo();
             
             NetworkEvents.OnClientConnectedToServer?.Invoke(conn);
         }
@@ -49,22 +47,8 @@ namespace Entity
             base.OnServerDisconnect(conn);
 
             this.LogWarning($"OnClientDisconnectedFromServer, ConnectionId: {conn.connectionId}");
-            
-            CMD_SendDCInfo();
 
             NetworkEvents.OnClientDisconnectedFromServer?.Invoke(conn);
-        }
-
-        [ClientRpc]
-        public void CMD_SendConnectionInfo()
-        {
-            this.LogError("Birisi bağlandı.");
-        }
-
-        [ClientRpc]
-        public void CMD_SendDCInfo()
-        {
-            this.LogError("Birinin bağlantısı gitti.");
         }
 
         /// <summary>This is invoked when a host is started.</summary>
