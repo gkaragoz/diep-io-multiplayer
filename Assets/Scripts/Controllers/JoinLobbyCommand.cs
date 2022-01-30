@@ -16,7 +16,7 @@ namespace Controllers
     public class JoinLobbyCommand : Command
     {
         protected Callback<GameLobbyJoinRequested_t> JoinRequest;
-        protected CallResult<LobbyEnter_t> LobbyEntered;
+        protected Callback<LobbyEnter_t> LobbyEntered;
 
         public JoinLobbyCommand()
         {
@@ -26,13 +26,13 @@ namespace Controllers
                 return;
 
             JoinRequest = Callback<GameLobbyJoinRequested_t>.Create(OnJoinRequest);
-            LobbyEntered = CallResult<LobbyEnter_t>.Create(OnLobbyEntered);
+            LobbyEntered = Callback<LobbyEnter_t>.Create(OnLobbyEntered);
         }
 
         private void JoinLobbyListener(ulong lobbySteamId)
         {
             this.Log("JoinLobby");
-            LobbyEntered.Set(SteamMatchmaking.JoinLobby(new CSteamID(lobbySteamId)));
+            SteamMatchmaking.JoinLobby(new CSteamID(lobbySteamId));
         }
 
         private void OnJoinRequest(GameLobbyJoinRequested_t callback)
@@ -42,7 +42,7 @@ namespace Controllers
             SteamMatchmaking.JoinLobby(callback.m_steamIDLobby);
         }
 
-        private void OnLobbyEntered(LobbyEnter_t callback, bool bIOFailure)
+        private void OnLobbyEntered(LobbyEnter_t callback)
         {
             this.LogWarning("OnLobbyEntered");
 
@@ -69,6 +69,8 @@ namespace Controllers
                         IsReady = bool.Parse(SteamMatchmaking.GetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), memberSteamId.m_SteamID.ToString())),
                     });
                 }
+                
+                screen.Initialize(false, lobbyPlayerList);
             }
 
 
