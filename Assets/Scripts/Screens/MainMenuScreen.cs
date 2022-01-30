@@ -12,7 +12,7 @@ namespace Screens
     public class MainMenuScreen : Screen
     {
         public override ScreenType ScreenType => ScreenType.MainMenu;
-        
+
         #region Serialized References
 
         [Header("References")]
@@ -28,20 +28,20 @@ namespace Screens
         public void OnClick_StartGame()
         {
             UIEvents.HideScreen?.Invoke(ScreenType);
-            
+
             NetworkEvents.CreateLobbyCommand?.Invoke(ELobbyType.k_ELobbyTypePublic);
         }
-        
+
         public void OnClick_JoinGame()
         {
             this.Log($"{ScreenType.Lobbies} is going to be opened.");
 
             UIEvents.HideScreen?.Invoke(ScreenType);
-            
+
             NetworkEvents.ListLobbiesCommand?.Invoke();
         }
 
         #endregion
-        
+
     }
 }

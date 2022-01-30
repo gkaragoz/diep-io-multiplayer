@@ -16,9 +16,9 @@ namespace Entity.UI.Lobby
 
         [SerializeField] private Image _imgIsPrivate;
         [SerializeField] private TMP_Text _txtIsPrivate;
-        
+
         [SerializeField] private TMP_Text _txtStatus;
-        
+
         [SerializeField] private Button _btnJoin;
 
         private ulong _id;
@@ -26,7 +26,7 @@ namespace Entity.UI.Lobby
         public void Initialize(LobbyListItem item)
         {
             _id = item.LobbySteamId;
-            
+
             SetId(item.LobbySteamId.ToString());
             SetLobbyName(item.LobbyName);
             SetOwnerName(item.OwnerName);
@@ -34,7 +34,7 @@ namespace Entity.UI.Lobby
             SetIsPrivate(item.IsPrivate);
             SetStatus(item.Status);
             SetJoinButton(item.Status);
-            
+
             _btnJoin.onClick.AddListener(OnClick_Join);
         }
 

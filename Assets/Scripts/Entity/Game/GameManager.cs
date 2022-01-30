@@ -13,7 +13,7 @@ namespace Entity.Game
         private PlayerDataController _playerDataController;
         private UIManager _uiManager;
         private List<ICommand> _commandsList;
-        
+
         private void Start()
         {
             SetReferences();
@@ -31,14 +31,15 @@ namespace Entity.Game
         private void SetupAll()
         {
             _playerDataController = new PlayerDataController();
-            
+
             _uiManager.Setup();
 
             _commandsList = new List<ICommand>
             {
                 new CreateLobbyCommand(),
                 new ListLobbiesCommand(),
-                new LeaveLobbyCommand()
+                new LeaveLobbyCommand(),
+                new JoinLobbyCommand()
             };
         }
 

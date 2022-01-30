@@ -16,8 +16,6 @@ namespace Controllers
     public class CreateLobbyCommand : Command
     {
         protected Callback<LobbyCreated_t> LobbyCreated;
-        protected Callback<GameLobbyJoinRequested_t> JoinRequest;
-        protected Callback<LobbyEnter_t> LobbyEntered;
 
         private bool IsPrivate
         {
@@ -40,7 +38,7 @@ namespace Controllers
                 }
             }
         }
-        
+
         private ELobbyType _lobbyType;
 
         public CreateLobbyCommand()
@@ -49,60 +47,24 @@ namespace Controllers
 
             if (!SteamManager.Initialized)
                 return;
-            
+
             LobbyCreated = Callback<LobbyCreated_t>.Create(OnLobbyCreated);
-            JoinRequest = Callback<GameLobbyJoinRequested_t>.Create(OnJoinRequest);
-            LobbyEntered = Callback<LobbyEnter_t>.Create(OnLobbyEntered);
         }
 
         private void OnLobbyCreated(LobbyCreated_t callback)
         {
             this.LogWarning($"OnLobbyCreated {callback.m_eResult}");
-            
+
             if (callback.m_eResult != EResult.k_EResultOK)
                 return;
-            
+
             NetworkEvents.StartHost?.Invoke();
             SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), NetworkConstants.HOST_ADDRESS_KEY, SteamUser.GetSteamID().ToString());
-            SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), NetworkConstants.LOBBY_NAME_KEY,$"{SteamFriends.GetPersonaName()} 's LOBBY" );
-            SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), NetworkConstants.LOBBY_OWNER_NAME_KEY,$"{SteamFriends.GetPersonaName()}" );
-            SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), NetworkConstants.LOBBY_TYPE,$"{IsPrivate}" );
-            SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), NetworkConstants.LOBBY_STATUS,$"{LobbyStatus.AVAILABLE.ToString()}" );
-        }
-        
-        private void OnJoinRequest(GameLobbyJoinRequested_t callback)
-        {
-            this.LogWarning("OnJoinRequest");
-            
-            SteamMatchmaking.JoinLobby(callback.m_steamIDLobby);
-        }
-
-        private void OnLobbyEntered(LobbyEnter_t callback)
-        {
-            this.LogWarning("OnLobbyEntered");
-
-            // Everyone
-            var lobbyScreen = UIEvents.ShowScreen?.Invoke(ScreenType.Lobby);
-
-            PlayerDataController.Instance.SetLobbySteamId(callback.m_ulSteamIDLobby);
-            
-            if (lobbyScreen is LobbyScreen screen)
-                screen.Initialize(true, new List<LobbyPlayer>
-                {
-                    new LobbyPlayer()
-                    {
-                        SteamId = SteamUser.GetSteamID().m_SteamID,
-                        Name = SteamMatchmaking.GetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), NetworkConstants.LOBBY_NAME_KEY),
-                        IsReady = true
-                    }
-                });
-            
-            // Clients
-            if (NetworkServer.active)
-                return;
-
-            NetworkEvents.ChangeNetworkAddress?.Invoke(SteamMatchmaking.GetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), NetworkConstants.HOST_ADDRESS_KEY));
-            NetworkEvents.StartClient?.Invoke();
+            SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), NetworkConstants.LOBBY_NAME_KEY, $"{SteamFriends.GetPersonaName()} 's LOBBY");
+            SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), NetworkConstants.LOBBY_OWNER_NAME_KEY, $"{SteamFriends.GetPersonaName()}");
+            SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), NetworkConstants.LOBBY_TYPE_KEY, $"{IsPrivate}");
+            SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), NetworkConstants.LOBBY_STATUS_KEY, $"{LobbyStatus.AVAILABLE.ToString()}");
+            SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), SteamUser.GetSteamID().ToString(), true.ToString());
         }
 
         private void CreateLobbyListener(ELobbyType lobbyType)
@@ -110,7 +72,7 @@ namespace Controllers
             this.Log("Trying to create lobby.");
 
             _lobbyType = lobbyType;
-                
+
             SteamMatchmaking.CreateLobby(lobbyType, NetworkManager.singleton.maxConnections);
         }
     }

@@ -21,17 +21,17 @@ namespace Controllers
 
             if (!SteamManager.Initialized)
                 return;
-            
+
             RequestLobbyList = CallResult<LobbyMatchList_t>.Create(OnLobbyListRefreshed);
         }
 
         private void OnLobbyListRefreshed(LobbyMatchList_t callback, bool bIOFailure)
         {
             this.LogWarning("OnLobbyListRefreshed");
-            
+
             if (bIOFailure)
                 return;
-            
+
             var lobbyListItems = new List<LobbyListItem>();
 
             var lobbiesCount = callback.m_nLobbiesMatching;
@@ -47,10 +47,10 @@ namespace Controllers
                     OwnerName = SteamMatchmaking.GetLobbyData(lobbySteamId, NetworkConstants.LOBBY_OWNER_NAME_KEY),
                     CurrentPlayersCount = SteamMatchmaking.GetNumLobbyMembers(lobbySteamId),
                     MaxPlayersCount = SteamMatchmaking.GetLobbyMemberLimit(lobbySteamId),
-                    IsPrivate = bool.Parse(SteamMatchmaking.GetLobbyData(lobbySteamId, NetworkConstants.LOBBY_TYPE)),
-                    Status = (LobbyStatus) Enum.Parse(typeof(LobbyStatus),SteamMatchmaking.GetLobbyData(lobbySteamId, NetworkConstants.LOBBY_STATUS)),
+                    IsPrivate = bool.Parse(SteamMatchmaking.GetLobbyData(lobbySteamId, NetworkConstants.LOBBY_TYPE_KEY)),
+                    Status = (LobbyStatus)Enum.Parse(typeof(LobbyStatus), SteamMatchmaking.GetLobbyData(lobbySteamId, NetworkConstants.LOBBY_STATUS_KEY)),
                 };
-                
+
                 lobbyListItems.Add(lobbyListItem);
             }
 
@@ -62,7 +62,7 @@ namespace Controllers
         private void ListLobbiesListener()
         {
             this.Log("RequestLobbyList");
-            
+            SteamMatchmaking.AddRequestLobbyListStringFilter(NetworkConstants.LOBBY_OWNER_NAME_KEY, "Whoaa", ELobbyComparison.k_ELobbyComparisonEqualToOrGreaterThan);
             RequestLobbyList.Set(SteamMatchmaking.RequestLobbyList());
         }
     }
