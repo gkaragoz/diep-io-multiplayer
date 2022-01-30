@@ -102,6 +102,8 @@ namespace Entity.UI.Lobby
 
         private void OnClick_Join()
         {
+            UIEvents.HideScreen?.Invoke(ScreenType.Lobbies);
+
             NetworkEvents.JoinLobbyCommand?.Invoke(_id);
         }
     }

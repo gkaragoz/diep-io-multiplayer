@@ -53,7 +53,7 @@ namespace Screens
         public void OnClick_RefreshLobbies()
         {
             ClearList();
-            
+
             NetworkEvents.ListLobbiesCommand?.Invoke();
         }
         

@@ -47,36 +47,45 @@ namespace Controllers
             this.LogWarning("OnLobbyEntered");
 
             // Everyone
-            var lobbyScreen = UIEvents.ShowScreen?.Invoke(ScreenType.Lobby);
+            var lobbyScreen = (LobbyScreen) UIEvents.ShowScreen?.Invoke(ScreenType.Lobby);
             var lobbySteamId = new CSteamID(callback.m_ulSteamIDLobby);
 
             PlayerDataController.Instance.SetLobbySteamId(callback.m_ulSteamIDLobby);
 
             var lobbyPlayerList = new List<LobbyPlayer>();
 
-            if (lobbyScreen is LobbyScreen screen)
+            var membersCount = SteamMatchmaking.GetNumLobbyMembers(lobbySteamId);
+
+            for (int ii = 0; ii < membersCount; ii++)
             {
-                var membersCount = SteamMatchmaking.GetNumLobbyMembers(lobbySteamId);
+                var memberSteamId = SteamMatchmaking.GetLobbyMemberByIndex(lobbySteamId, ii);
 
-                for (int ii = 0; ii < membersCount; ii++)
+                lobbyPlayerList.Add(new LobbyPlayer()
                 {
-                    var memberSteamId = SteamMatchmaking.GetLobbyMemberByIndex(lobbySteamId, ii);
-
-                    lobbyPlayerList.Add(new LobbyPlayer()
-                    {
-                        SteamId = memberSteamId.m_SteamID,
-                        Name = SteamMatchmaking.GetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), NetworkConstants.LOBBY_NAME_KEY),
-                        IsReady = bool.Parse(SteamMatchmaking.GetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), memberSteamId.m_SteamID.ToString())),
-                    });
-                }
-                
-                screen.Initialize(false, lobbyPlayerList);
+                    SteamId = memberSteamId.m_SteamID,
+                    Name = SteamMatchmaking.GetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), NetworkConstants.LOBBY_OWNER_NAME_KEY),
+                    IsReady = bool.Parse(SteamMatchmaking.GetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), memberSteamId.m_SteamID.ToString())),
+                });
             }
-
+            
+            SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), SteamUser.GetSteamID().ToString(), false.ToString());
+            
+            if (NetworkServer.active)
+                lobbyScreen.Initialize(false, lobbyPlayerList);
 
             // Clients
             if (NetworkServer.active)
                 return;
+            
+            // Add yourself.
+            lobbyPlayerList.Add(new LobbyPlayer()
+            {
+                SteamId = SteamUser.GetSteamID().m_SteamID,
+                Name = SteamFriends.GetPersonaName(),
+                IsReady = false,
+            });
+            
+            lobbyScreen.Initialize(false, lobbyPlayerList);
 
             NetworkEvents.ChangeNetworkAddress?.Invoke(SteamMatchmaking.GetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), NetworkConstants.HOST_ADDRESS_KEY));
             NetworkEvents.StartClient?.Invoke();
