@@ -27,19 +27,7 @@ namespace Events
 
         #region Callbacks
 
-        public static Action OnHostStarted { get; set; }
-        public static Action OnServerStarted{ get; set; }
-        public static Action OnClientStarted { get; set; }
-        
-        public static Action OnHostStopped { get; set; }
-        public static Action OnClientStopped { get; set; }
-        public static Action OnServerStopped { get; set; }
-        
-        public static Action<NetworkConnection> OnServer_ClientConnectedToServer { get; set; }
-        public static Action<NetworkConnection> OnServer_ClientDisconnectedFromServer { get; set; }
-        
-        public static Action<NetworkConnection> OnClient_ClientConnectedToServer { get; set; }
-        public static Action<NetworkConnection> OnClient_ClientDisconnectedFromServer { get; set; }
+        public  static Action<NetworkConnection> OnServerAddPlayer { get; set; }
         
         #endregion
     }

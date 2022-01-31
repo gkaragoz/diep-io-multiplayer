@@ -15,16 +15,12 @@ namespace Controllers
     {
         public PlayerConnectedToLobbyCommand()
         {
-            NetworkEvents.OnServer_ClientConnectedToServer += OnServer_ClientConnectedToServerListener;
-            NetworkEvents.OnServer_ClientDisconnectedFromServer += OnServer_ClientDisconnectedFromServerListener;
-
-            NetworkEvents.OnClient_ClientConnectedToServer += OnClient_ClientConnectedToServerListener;
-            NetworkEvents.OnClient_ClientDisconnectedFromServer += OnClient_ClientDisconnectedFromServerListener;
+            NetworkEvents.OnServerAddPlayer += OnServerAddPlayer;
         }
 
-        private void OnServer_ClientConnectedToServerListener(NetworkConnection connection)
+        private void OnServerAddPlayer(NetworkConnection connection)
         {
-            this.LogWarning("OnServer_ClientConnectedToServerListener");
+            this.LogWarning("OnServerAddPlayer");
             
             return;
             
@@ -51,24 +47,6 @@ namespace Controllers
             }
             
             lobbyScreen.Initialize(NetworkClient.isHostClient, lobbyPlayerList);
-        }
-
-        private void OnServer_ClientDisconnectedFromServerListener(NetworkConnection connection)
-        {
-            this.LogWarning("OnServer_ClientDisconnectedFromServerListener");
-            
-        }
-
-        private void OnClient_ClientConnectedToServerListener(NetworkConnection connection)
-        {
-            this.LogWarning("OnClient_ClientConnectedToServerListener");
-
-        }
-
-        private void OnClient_ClientDisconnectedFromServerListener(NetworkConnection connection)
-        {
-            this.LogWarning("OnClient_ClientDisconnectedFromServerListener");
-
         }
     }
 }
