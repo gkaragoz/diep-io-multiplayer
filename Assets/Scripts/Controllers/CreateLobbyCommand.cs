@@ -1,16 +1,17 @@
-﻿using Constants;
-using Entity.Controllers;
-using Entity.Logger;
-using Enums;
-using Events;
+﻿using Assets.Scripts.Constants;
+using Assets.Scripts.Entity;
+using Assets.Scripts.Entity.Controllers;
+using Assets.Scripts.Entity.Logger;
+using Assets.Scripts.Enums;
+using Assets.Scripts.Events;
 using Mirror;
 using Steamworks;
 
-namespace Controllers
+namespace Assets.Scripts.Controllers
 {
     public class CreateLobbyCommand : Command
     {
-        protected Callback<LobbyCreated_t> LobbyCreated;
+        private Callback<LobbyCreated_t> _lobbyCreated;
 
         private bool IsPrivate
         {
@@ -43,7 +44,7 @@ namespace Controllers
             if (!SteamManager.Initialized)
                 return;
 
-            LobbyCreated = Callback<LobbyCreated_t>.Create(OnLobbyCreated);
+            _lobbyCreated = Callback<LobbyCreated_t>.Create(OnLobbyCreated);
         }
 
         private void OnLobbyCreated(LobbyCreated_t callback)

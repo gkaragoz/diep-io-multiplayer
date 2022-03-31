@@ -1,11 +1,11 @@
-﻿using Entity.Controllers;
-using Entity.Logger;
-using Entity.Player;
-using Enums;
-using Events;
+﻿using Assets.Scripts.Entity.Controllers;
+using Assets.Scripts.Entity.Logger;
+using Assets.Scripts.Entity.Player;
+using Assets.Scripts.Enums;
+using Assets.Scripts.Events;
 using Steamworks;
 
-namespace Controllers
+namespace Assets.Scripts.Controllers
 {
     public class LeaveLobbyCommand : Command
     {

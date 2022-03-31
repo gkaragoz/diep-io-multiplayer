@@ -1,15 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Entity.UI.Lobby;
-using Enums;
-using Events;
+using Assets.Scripts.Entity.UI.Lobby;
+using Assets.Scripts.Enums;
+using Assets.Scripts.Events;
 using UnityEngine;
 using UnityEngine.UI;
-using Screen = Entity.UI.Screen.Screen;
 
-namespace Screens
+namespace Assets.Scripts.Screens
 {
-    public class LobbyScreen : Screen
+    public class LobbyScreen : Entity.UI.Screen.Screen
     {
         public override ScreenType ScreenType => ScreenType.Lobby;
         

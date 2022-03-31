@@ -1,15 +1,14 @@
-﻿using Entity.Logger;
-using Enums;
-using Events;
+﻿using Assets.Scripts.Entity.Logger;
+using Assets.Scripts.Enums;
+using Assets.Scripts.Events;
 using Steamworks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Screen = Entity.UI.Screen.Screen;
 
-namespace Screens
+namespace Assets.Scripts.Screens
 {
-    public class MainMenuScreen : Screen
+    public class MainMenuScreen : Entity.UI.Screen.Screen
     {
         public override ScreenType ScreenType => ScreenType.MainMenu;
 

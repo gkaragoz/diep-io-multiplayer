@@ -1,11 +1,11 @@
 ﻿using System;
-using Enums;
-using Events;
+using Assets.Scripts.Enums;
+using Assets.Scripts.Events;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Entity.UI.Lobby
+namespace Assets.Scripts.Entity.UI.Lobby
 {
     public class LobbyListUI : MonoBehaviour
     {

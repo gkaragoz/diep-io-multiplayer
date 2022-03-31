@@ -2,7 +2,7 @@
 using Mirror;
 using Steamworks;
 
-namespace Events
+namespace Assets.Scripts.Events
 {
     public static class NetworkEvents
     {

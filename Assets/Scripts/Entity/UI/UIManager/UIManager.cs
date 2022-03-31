@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using Entity.UI.Screen;
-using Enums;
-using Events;
+using Assets.Scripts.Entity.UI.Screen;
+using Assets.Scripts.Enums;
+using Assets.Scripts.Events;
 using UnityEngine;
 
-namespace Entity.UI.UIManager
+namespace Assets.Scripts.Entity.UI.UIManager
 {
     public class UIManager : MonoBehaviour, IUIManager
     {

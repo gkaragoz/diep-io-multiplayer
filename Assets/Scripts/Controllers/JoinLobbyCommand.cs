@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using Constants;
-using Entity.Controllers;
-using Entity.Logger;
-using Entity.Player;
-using Entity.UI.Lobby;
-using Enums;
-using Events;
+﻿using Assets.Scripts.Constants;
+using Assets.Scripts.Entity;
+using Assets.Scripts.Entity.Controllers;
+using Assets.Scripts.Entity.Logger;
+using Assets.Scripts.Entity.Player;
+using Assets.Scripts.Events;
 using Mirror;
-using Screens;
 using Steamworks;
 
-namespace Controllers
+namespace Assets.Scripts.Controllers
 {
     public class JoinLobbyCommand : Command
     {
-        protected Callback<GameLobbyJoinRequested_t> JoinRequest;
-        protected Callback<LobbyEnter_t> LobbyEntered;
+        private Callback<GameLobbyJoinRequested_t> _joinRequest;
+        private Callback<LobbyEnter_t> _lobbyEntered;
 
         public JoinLobbyCommand()
         {
@@ -25,8 +21,8 @@ namespace Controllers
             if (!SteamManager.Initialized)
                 return;
 
-            JoinRequest = Callback<GameLobbyJoinRequested_t>.Create(OnJoinRequest);
-            LobbyEntered = Callback<LobbyEnter_t>.Create(OnLobbyEntered);
+            _joinRequest = Callback<GameLobbyJoinRequested_t>.Create(OnJoinRequest);
+            _lobbyEntered = Callback<LobbyEnter_t>.Create(OnLobbyEntered);
         }
 
         private void JoinLobbyListener(ulong lobbySteamId)

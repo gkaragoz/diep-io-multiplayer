@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
-using Controllers;
-using Entity.Controllers;
-using Entity.Player;
-using Entity.UI.UIManager;
-using Enums;
+using Assets.Scripts.Controllers;
+using Assets.Scripts.Entity.Controllers;
+using Assets.Scripts.Entity.Player;
+using Assets.Scripts.Entity.UI.UIManager;
+using Assets.Scripts.Enums;
 using UnityEngine;
 
-namespace Entity.Game
+namespace Assets.Scripts.Entity.Game
 {
     public class GameManager : MonoBehaviour
     {

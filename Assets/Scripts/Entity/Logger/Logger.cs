@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Entity.Logger
+namespace Assets.Scripts.Entity.Logger
 {
     public static class Logger
     {

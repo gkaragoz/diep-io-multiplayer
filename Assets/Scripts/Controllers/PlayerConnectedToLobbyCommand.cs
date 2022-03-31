@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
-using Entity.Controllers;
-using Entity.Logger;
-using Entity.Player;
-using Entity.UI.Lobby;
-using Enums;
-using Events;
+using Assets.Scripts.Entity.Controllers;
+using Assets.Scripts.Entity.Logger;
+using Assets.Scripts.Entity.Player;
+using Assets.Scripts.Entity.UI.Lobby;
+using Assets.Scripts.Enums;
+using Assets.Scripts.Events;
+using Assets.Scripts.Screens;
 using Mirror;
-using Screens;
 using Steamworks;
 
-namespace Controllers
+namespace Assets.Scripts.Controllers
 {
     public class PlayerConnectedToLobbyCommand : Command
     {

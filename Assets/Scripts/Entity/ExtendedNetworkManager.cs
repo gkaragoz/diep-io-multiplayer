@@ -1,8 +1,7 @@
-using Entity.Logger;
-using Events;
+using Assets.Scripts.Events;
 using Mirror;
 
-namespace Entity
+namespace Assets.Scripts.Entity
 {
     public class ExtendedNetworkManager : NetworkManager
     {

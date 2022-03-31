@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Data.ValueObject
+namespace Assets.Scripts.Data.ValueObject
 {
     [Serializable]
     public class PlayerVO

@@ -1,8 +1,8 @@
 ﻿using System;
-using Entity.UI.Screen;
-using Enums;
+using Assets.Scripts.Entity.UI.Screen;
+using Assets.Scripts.Enums;
 
-namespace Events
+namespace Assets.Scripts.Events
 {
     public static class UIEvents
     {
