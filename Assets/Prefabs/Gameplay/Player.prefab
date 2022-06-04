@@ -470,7 +470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 302f6d9a50684fa0ba31ff23cbb9625d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 5
+  _movementSpeed: 3
   _rigidbody: {fileID: 879104358095599018}
   _gunHolderTransform: {fileID: 1522302723053112837}
 --- !u!114 &6522683034225819939
@@ -487,6 +487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gunEndPoint: {fileID: 6758383992664469164}
   _projectilePrefab: {fileID: 5221882745877145016, guid: bebc13a1db88aec4a942d2d5fd13611a, type: 3}
+  _cooldown: 0.25
 --- !u!50 &879104358095599018
 Rigidbody2D:
   serializedVersion: 4
