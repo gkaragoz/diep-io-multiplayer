@@ -35,6 +35,14 @@ namespace Entity.Network
 
         private void OnDisable()
         {
+            NetworkEvents.StartHost -= StartHost;
+            NetworkEvents.StartClient -= StartClient;
+            NetworkEvents.StartServer -= StartServer;
+
+            NetworkEvents.StopHost -= StopServer;
+            NetworkEvents.StopClient -= StopClient;
+            NetworkEvents.StopServer -= StopServer;
+            
             NetworkEvents.ChangeNetworkAddress -= OnChangeNetworkAddressListener;
         }
         
