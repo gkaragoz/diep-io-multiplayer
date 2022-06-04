@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Entity.UI.Lobby
+namespace Entity.UI.Player
 {
     public class PlayerUI : MonoBehaviour
     {

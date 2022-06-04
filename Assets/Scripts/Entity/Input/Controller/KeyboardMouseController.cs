@@ -1,8 +1,8 @@
-﻿using Input.Keyboard;
-using Input.Mouse;
+﻿using Entity.Input.Keyboard;
+using Entity.Input.Mouse;
 using UnityEngine;
 
-namespace Input.Controller
+namespace Entity.Input.Controller
 {
     public class KeyboardMouseController : InputController
     {
@@ -33,6 +33,11 @@ namespace Input.Controller
         public override Vector2 GetRotationInput()
         {
             return MouseInputBase.CurrentInput;
+        }
+        
+        public override bool HasAttackButtonPressed()
+        {
+            return UnityEngine.Input.GetMouseButton(0);
         }
     }
 }

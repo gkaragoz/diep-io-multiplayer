@@ -1,7 +1,7 @@
-﻿using Input.Gamepad;
+﻿using Entity.Input.Gamepad;
 using UnityEngine;
 
-namespace Input.Controller
+namespace Entity.Input.Controller
 {
     public class GamepadController : InputController
     {
@@ -30,6 +30,11 @@ namespace Input.Controller
         public override Vector2 GetRotationInput()
         {
             return _gamepadInputBase.CurrentInput;
+        }
+
+        public override bool HasAttackButtonPressed()
+        {
+            return UnityEngine.Input.GetMouseButton(0);
         }
     }
 }

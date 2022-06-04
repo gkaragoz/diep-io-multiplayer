@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Input.Keyboard
+namespace Entity.Input.Keyboard
 {
     public abstract class KeyboardInputBase : InputReceiver.InputReceiver
     {

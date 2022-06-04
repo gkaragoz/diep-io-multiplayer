@@ -1,9 +1,7 @@
-﻿using System;
-using Entity.Logger;
+﻿using Entity.Input.Controller;
 using Entity.Player.Tank;
-using Entity.UI.Lobby;
-using Input;
-using Input.Controller;
+using Entity.Player.Tank.Projectile;
+using Entity.UI.Player;
 using Mirror;
 using Steamworks;
 using UnityEngine;
@@ -31,6 +29,8 @@ namespace Entity.Player
             _inputController = GetComponent<KeyboardMouseController>();
 
             _playerUI.Initialize();
+
+            _tank.OnAttackCallback += CmdFire;
         }
 
         private void Update()
@@ -45,6 +45,9 @@ namespace Entity.Player
 
             if (_inputController.HasRotationInput())
                 _tank.RotateTo(_inputController.GetRotationInput(), _camera);
+            
+            if (_inputController.HasAttackButtonPressed())
+                _tank.Attack();
         }
 
         public override void OnStartAuthority()
@@ -58,6 +61,36 @@ namespace Entity.Player
 
         public override void OnStopClient()
         {
+        }
+        
+        // this is called on the server
+        [Command]
+        private void CmdFire()
+        {
+            var prefab = _tank.GetProjectilePrefab();
+            var gunEndPoint = _tank.GetGunEndPoint();
+            
+            var newProjectile = Instantiate(prefab, gunEndPoint.position, gunEndPoint.rotation);
+            NetworkServer.Spawn(newProjectile);
+            // RpcOnFireAnimation();
+        }
+        
+        // this is called on the tank that fired for all observers
+        [ClientRpc]
+        private void RpcOnFireAnimation()
+        {
+            // animator.SetTrigger("Shoot");
+        }
+        
+        [ServerCallback]
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.GetComponent<Projectile>() != null)
+            {
+                // --health;
+                // if (health == 0)
+                //     NetworkServer.Destroy(gameObject);
+            }
         }
     }
 }

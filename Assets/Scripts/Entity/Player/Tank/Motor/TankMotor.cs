@@ -6,8 +6,6 @@ namespace Entity.Player.Tank.Motor
     {
         [SerializeField]
         private float _movementSpeed = 5f;
-
-        public float MovementSpeed => _movementSpeed;
         
         [SerializeField] private Rigidbody2D _rigidbody;
         [SerializeField] private Transform _gunHolderTransform;

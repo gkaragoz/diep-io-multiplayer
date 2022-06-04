@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Input.Mouse
+namespace Entity.Input.Mouse
 {
     public abstract class MouseInputBase : InputReceiver.InputReceiver
     {

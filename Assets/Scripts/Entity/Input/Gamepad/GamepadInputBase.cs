@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Input.Gamepad
+namespace Entity.Input.Gamepad
 {
     public abstract class GamepadInputBase : InputReceiver.InputReceiver
     {

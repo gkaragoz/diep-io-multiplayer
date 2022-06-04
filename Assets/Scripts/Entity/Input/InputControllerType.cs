@@ -1,4 +1,4 @@
-﻿namespace Input
+﻿namespace Entity.Input
 {
     public enum InputControllerType
     {

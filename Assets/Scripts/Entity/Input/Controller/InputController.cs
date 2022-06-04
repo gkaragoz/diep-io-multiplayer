@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Input.Controller
+namespace Entity.Input.Controller
 {
     public abstract class InputController : MonoBehaviour
     {
@@ -9,5 +9,6 @@ namespace Input.Controller
         
         public abstract Vector2 GetMovementInput();
         public abstract Vector2 GetRotationInput();
+        public abstract bool HasAttackButtonPressed();
     }
 }

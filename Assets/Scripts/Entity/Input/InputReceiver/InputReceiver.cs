@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Input.InputReceiver
+namespace Entity.Input.InputReceiver
 {
     public abstract class InputReceiver : MonoBehaviour, IInputReceiver
     {
