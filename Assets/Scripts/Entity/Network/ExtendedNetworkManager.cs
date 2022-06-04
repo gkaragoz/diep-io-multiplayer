@@ -69,7 +69,7 @@ namespace Entity.Network
 
         #region Callbacks
 
-        public override void OnServerAddPlayer(NetworkConnection conn)
+        public override void OnServerAddPlayer(NetworkConnectionToClient conn)
         {
             base.OnServerAddPlayer(conn);
             
