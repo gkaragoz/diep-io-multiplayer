@@ -1,7 +1,4 @@
-﻿using System;
-using Entity.Network;
-using Enums;
-using Events;
+﻿using Entity.Network;
 using Steamworks;
 using TMPro;
 using UnityEngine;
@@ -9,35 +6,33 @@ using UnityEngine.UI;
 
 namespace Entity.UI.Lobby
 {
-    public class LobbyPlayerUI : MonoBehaviour
+    public class PlayerUI : MonoBehaviour
     {
         [SerializeField] private TMP_Text _txtPlayerName;
-        [SerializeField] private TMP_Text _txtStatus;
         [SerializeField] private RawImage _imgIcon;
 
-        public LobbyPlayerData Data { get; private set; }
+        private bool _avatarReceived = false;
 
         private Callback<AvatarImageLoaded_t> _imageLoadedCallback;
 
-        public void Initialize(LobbyPlayerData lobbyPlayerData)
+        public void Initialize()
         {
-            Data = lobbyPlayerData;
             _imageLoadedCallback = Callback<AvatarImageLoaded_t>.Create(OnImageLoaded);
             
             SetPlayerName();
-            SetReadyStatus(Data.IsReady);
             
-            if (Data.AvatarReceived == false)
+            if (_avatarReceived == false)
                 PlayerIconRequest();
         }
 
         private void SetPlayerName()
         {
-            _txtPlayerName.text = $"{Data.Name}";
+            _txtPlayerName.text = $"{SteamFriends.GetPersonaName()}";
         }
+        
         private void PlayerIconRequest()
         {
-            int imageId = SteamFriends.GetLargeFriendAvatar((CSteamID) Data.PlayerObjectController.steamId);
+            int imageId = SteamFriends.GetLargeFriendAvatar(SteamUser.GetSteamID());
             if (imageId == -1)
                 return;
 
@@ -46,22 +41,12 @@ namespace Entity.UI.Lobby
         
         private void OnImageLoaded(AvatarImageLoaded_t callback)
         {
-            if (callback.m_steamID.m_SteamID == Data.PlayerObjectController.steamId)
+            if (callback.m_steamID == SteamUser.GetSteamID())
                 _imgIcon.texture = SteamHelpers.GetSteamImageAsTexture(callback.m_iImage);
             else //another player
                 return;
 
-            Data.AvatarReceived = true;
-        }
-
-        public void SetReadyStatus(bool isReady)
-        {
-            Data.IsReady = isReady;
-            
-            if (Data.IsReady)
-                _txtStatus.text = "READY";
-            else
-                _txtStatus.text = "NOT READY";
+            _avatarReceived = true;
         }
     }
 }
