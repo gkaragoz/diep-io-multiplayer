@@ -15,6 +15,13 @@ namespace Entity.Network
         
         private void OnEnable()
         {
+            _createLobbyOperation = new();
+            _joinLobbyOperation = new();
+            _listLobbiesOperation = new();
+            _leaveLobbyOperation = new();
+
+            _playerConnectedToLobbyOperation = new();
+            
             NetworkEvents.StartHost += StartHost;
             NetworkEvents.StartClient += StartClient;
             NetworkEvents.StartServer += StartServer;
@@ -25,12 +32,13 @@ namespace Entity.Network
             
             NetworkEvents.ChangeNetworkAddress += OnChangeNetworkAddressListener;
 
-            _createLobbyOperation = new();
-            _joinLobbyOperation = new();
-            _listLobbiesOperation = new();
-            _leaveLobbyOperation = new();
+            //Operations
+            NetworkEvents.CreateLobbyOperation += _createLobbyOperation.CreateLobbyListener;
+            NetworkEvents.JoinLobbyOperation += _joinLobbyOperation.JoinLobbyListener;
+            NetworkEvents.LeaveLobbyOperation += _leaveLobbyOperation.LeaveLobbyListener;
+            NetworkEvents.ListLobbiesOperation += _listLobbiesOperation.ListLobbiesListener;
 
-            _playerConnectedToLobbyOperation = new();
+            NetworkEvents.OnServerAddPlayer += _playerConnectedToLobbyOperation.OnServerAddPlayer;
         }
 
         private void OnDisable()
@@ -44,6 +52,14 @@ namespace Entity.Network
             NetworkEvents.StopServer -= StopServer;
             
             NetworkEvents.ChangeNetworkAddress -= OnChangeNetworkAddressListener;
+            
+            //Operations
+            NetworkEvents.CreateLobbyOperation -= _createLobbyOperation.CreateLobbyListener;
+            NetworkEvents.JoinLobbyOperation -= _joinLobbyOperation.JoinLobbyListener;
+            NetworkEvents.LeaveLobbyOperation -= _leaveLobbyOperation.LeaveLobbyListener;
+            NetworkEvents.ListLobbiesOperation -= _listLobbiesOperation.ListLobbiesListener;
+
+            NetworkEvents.OnServerAddPlayer -= _playerConnectedToLobbyOperation.OnServerAddPlayer;
         }
         
         private void OnChangeNetworkAddressListener(string networkAddress)
@@ -53,7 +69,12 @@ namespace Entity.Network
 
         #region Callbacks
 
-        
+        public override void OnServerAddPlayer(NetworkConnection conn)
+        {
+            base.OnServerAddPlayer(conn);
+            
+            NetworkEvents.OnServerAddPlayer?.Invoke(conn);
+        }
 
         #endregion
         

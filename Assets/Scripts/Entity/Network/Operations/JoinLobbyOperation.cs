@@ -14,8 +14,6 @@ namespace Entity.Network.Operations
 
         public JoinLobbyOperation()
         {
-            NetworkEvents.JoinLobbyOperation += JoinLobbyListener;
-
             if (!SteamManager.Initialized)
                 return;
 
@@ -23,12 +21,7 @@ namespace Entity.Network.Operations
             _lobbyEntered = Callback<LobbyEnter_t>.Create(OnLobbyEntered);
         }
 
-        ~JoinLobbyOperation()
-        {
-            NetworkEvents.JoinLobbyOperation -= JoinLobbyListener;
-        }
-
-        private void JoinLobbyListener(ulong lobbySteamId)
+        public void JoinLobbyListener(ulong lobbySteamId)
         {
             this.Log("JoinLobby");
             SteamMatchmaking.JoinLobby(new CSteamID(lobbySteamId));

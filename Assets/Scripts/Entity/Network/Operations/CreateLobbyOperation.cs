@@ -37,17 +37,19 @@ namespace Entity.Network.Operations
 
         public CreateLobbyOperation()
         {
-            NetworkEvents.CreateLobbyOperation += CreateLobbyListener;
-
             if (!SteamManager.Initialized)
                 return;
 
             _lobbyCreated = Callback<LobbyCreated_t>.Create(OnLobbyCreated);
         }
 
-        ~CreateLobbyOperation()
+        public void CreateLobbyListener(ELobbyType lobbyType)
         {
-            NetworkEvents.CreateLobbyOperation -= CreateLobbyListener;
+            this.Log("Trying to create lobby.");
+
+            _lobbyType = lobbyType;
+
+            SteamMatchmaking.CreateLobby(lobbyType, NetworkManager.singleton.maxConnections);
         }
 
         private void OnLobbyCreated(LobbyCreated_t callback)
@@ -64,15 +66,6 @@ namespace Entity.Network.Operations
             SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), NetworkConstants.LOBBY_OWNER_NAME_KEY, $"{SteamFriends.GetPersonaName()}");
             SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), NetworkConstants.LOBBY_TYPE_KEY, $"{IsPrivate}");
             SteamMatchmaking.SetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), NetworkConstants.LOBBY_STATUS_KEY, $"{LobbyStatus.AVAILABLE.ToString()}");
-        }
-
-        private void CreateLobbyListener(ELobbyType lobbyType)
-        {
-            this.Log("Trying to create lobby.");
-
-            _lobbyType = lobbyType;
-
-            SteamMatchmaking.CreateLobby(lobbyType, NetworkManager.singleton.maxConnections);
         }
     }
 }

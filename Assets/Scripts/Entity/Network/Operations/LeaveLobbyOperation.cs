@@ -8,17 +8,7 @@ namespace Entity.Network.Operations
 {
     public class LeaveLobbyOperation
     {
-        public LeaveLobbyOperation()
-        {
-            NetworkEvents.LeaveLobbyOperation += LeaveLobbyListener;
-        }
-
-        ~LeaveLobbyOperation()
-        {
-            NetworkEvents.LeaveLobbyOperation -= LeaveLobbyListener;
-        }
-
-        private void LeaveLobbyListener()
+        public void LeaveLobbyListener()
         {
             var lobbySteamId = PlayerDataController.Instance.GetLobbySteamId();
             if (lobbySteamId == 0)

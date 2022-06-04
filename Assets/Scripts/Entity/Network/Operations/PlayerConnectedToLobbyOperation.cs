@@ -12,17 +12,7 @@ namespace Entity.Network.Operations
 {
     public class PlayerConnectedToLobbyOperation
     {
-        public PlayerConnectedToLobbyOperation()
-        {
-            NetworkEvents.OnServerAddPlayer += OnServerAddPlayer;
-        }
-
-        ~PlayerConnectedToLobbyOperation()
-        {
-            NetworkEvents.OnServerAddPlayer -= OnServerAddPlayer;
-        }
-
-        private void OnServerAddPlayer(NetworkConnection connection)
+        public void OnServerAddPlayer(NetworkConnection connection)
         {
             this.LogWarning("OnServerAddPlayer");
             

@@ -16,17 +16,18 @@ namespace Entity.Network.Operations
 
         public ListLobbiesOperation()
         {
-            NetworkEvents.ListLobbiesOperation += ListLobbiesListener;
-
             if (!SteamManager.Initialized)
                 return;
 
             _requestLobbyList = CallResult<LobbyMatchList_t>.Create(OnLobbyListRefreshed);
         }
-
-        ~ListLobbiesOperation()
+        
+        public void ListLobbiesListener()
         {
-            NetworkEvents.ListLobbiesOperation -= ListLobbiesListener;
+            this.Log("RequestLobbyList");
+            SteamMatchmaking.AddRequestLobbyListStringFilter(NetworkConstants.LOBBY_OWNER_NAME_KEY, "Whoaa",
+                ELobbyComparison.k_ELobbyComparisonEqualToOrGreaterThan);
+            _requestLobbyList.Set(SteamMatchmaking.RequestLobbyList());
         }
 
         private void OnLobbyListRefreshed(LobbyMatchList_t callback, bool bIOFailure)
@@ -63,14 +64,6 @@ namespace Entity.Network.Operations
             var lobbiesScreen = UIEvents.ShowScreen?.Invoke(ScreenType.Lobbies);
             if (lobbiesScreen is LobbiesScreen screen)
                 screen.Initialize(lobbyListItems);
-        }
-
-        private void ListLobbiesListener()
-        {
-            this.Log("RequestLobbyList");
-            SteamMatchmaking.AddRequestLobbyListStringFilter(NetworkConstants.LOBBY_OWNER_NAME_KEY, "Whoaa",
-                ELobbyComparison.k_ELobbyComparisonEqualToOrGreaterThan);
-            _requestLobbyList.Set(SteamMatchmaking.RequestLobbyList());
         }
     }
 }

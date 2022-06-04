@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Entity.Logger;
 using Entity.UI.Lobby;
 using Enums;
 using Events;
@@ -65,6 +66,9 @@ namespace Screens
 
         public void OnClick_BackToMainMenu()
         {
+            this.Log("OnClick_BackToMainMenu");
+            this.Log("LeaveLobbyOperation Invoked");
+            
             UIEvents.HideScreen?.Invoke(ScreenType);
             
             NetworkEvents.LeaveLobbyOperation?.Invoke();
