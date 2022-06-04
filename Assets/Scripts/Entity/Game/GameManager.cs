@@ -7,7 +7,6 @@ namespace Entity.Game
 {
     public class GameManager : MonoBehaviour
     {
-        private PlayerDataController _playerDataController;
         private UIManager _uiManager;
 
         private void Start()
@@ -26,8 +25,6 @@ namespace Entity.Game
 
         private void SetupAll()
         {
-            _playerDataController = new PlayerDataController();
-
             _uiManager.Setup();
         }
 

@@ -50,7 +50,7 @@ namespace Screens
 
         public void OnClick_BackToMainMenu()
         {
-            this.Log("OnClick_BackToMainMenu");
+            // this.Log("OnClick_BackToMainMenu");
             
             UIEvents.HideScreen?.Invoke(ScreenType);
             UIEvents.ShowScreen?.Invoke(ScreenType.MainMenu);
@@ -58,9 +58,9 @@ namespace Screens
 
         public void OnClick_RefreshLobbies()
         {
-            this.Log("OnClick_RefreshLobbies");
-            this.Log("ListLobbiesOperation Invoked");
-            
+            // this.Log("OnClick_RefreshLobbies");
+            // this.Log("ListLobbiesOperation Invoked");
+
             NetworkEvents.ListLobbiesOperation?.Invoke();
         }
         

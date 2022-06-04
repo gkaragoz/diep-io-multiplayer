@@ -24,9 +24,12 @@ namespace Screens
         #endregion
         
         private List<LobbyPlayerUI> _lobbyPlayerList;
+        private ulong _lobbySteamId;
 
-        public void Initialize(bool isOwner, List<LobbyPlayer> lobbyPlayerList)
+        public void Initialize(ulong lobbySteamId, bool isOwner, List<LobbyPlayerData> lobbyPlayerList)
         {
+            _lobbySteamId = lobbySteamId;
+            
             ClearList();
             _lobbyPlayerList = new List<LobbyPlayerUI>();
             
@@ -45,10 +48,10 @@ namespace Screens
             _btnStartGame.interactable = isReadyToPlay;
         }
 
-        private void CreateLobbyPlayer(LobbyPlayer lobbyPlayer)
+        private void CreateLobbyPlayer(LobbyPlayerData lobbyPlayerData)
         {
             var lobbyListItemUI = Instantiate(_lobbyPlayerUIPrefab, _contentParent);
-            lobbyListItemUI.Initialize(lobbyPlayer);
+            lobbyListItemUI.Initialize(lobbyPlayerData);
             
             _lobbyPlayerList.Add(lobbyListItemUI);
         }
@@ -56,7 +59,7 @@ namespace Screens
         private void ClearList()
         {
             if (_lobbyPlayerList == null)
-                return;;
+                return;
             
             foreach (var lobbyPlayerUI in _lobbyPlayerList)
                 Destroy(lobbyPlayerUI.gameObject);
@@ -66,12 +69,12 @@ namespace Screens
 
         public void OnClick_BackToMainMenu()
         {
-            this.Log("OnClick_BackToMainMenu");
-            this.Log("LeaveLobbyOperation Invoked");
+            // this.Log("OnClick_BackToMainMenu");
+            // this.Log("LeaveLobbyOperation Invoked");
             
             UIEvents.HideScreen?.Invoke(ScreenType);
             
-            NetworkEvents.LeaveLobbyOperation?.Invoke();
+            NetworkEvents.LeaveLobbyOperation?.Invoke(_lobbySteamId);
         }
         
         #endregion

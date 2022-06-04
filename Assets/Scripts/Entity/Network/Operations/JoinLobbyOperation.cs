@@ -1,9 +1,9 @@
 ﻿using Constants;
 using Entity.Logger;
-using Entity.Player;
 using Events;
 using Mirror;
 using Steamworks;
+using UnityEngine;
 
 namespace Entity.Network.Operations
 {
@@ -29,7 +29,7 @@ namespace Entity.Network.Operations
 
         private void OnJoinRequest(GameLobbyJoinRequested_t callback)
         {
-            this.LogWarning("OnJoinRequest");
+            this.Log("OnJoinRequest");
 
             SteamMatchmaking.JoinLobby(callback.m_steamIDLobby);
         }
@@ -37,8 +37,8 @@ namespace Entity.Network.Operations
         private void OnLobbyEntered(LobbyEnter_t callback)
         {
             this.LogWarning("OnLobbyEntered");
-            
-            PlayerDataController.Instance.SetLobbySteamId(callback.m_ulSteamIDLobby);
+
+            PlayerPrefs.SetString(NetworkConstants.LOBBY_STEAM_ID, callback.m_ulSteamIDLobby.ToString());
             
             // Everyone
             // Do nothing.
@@ -48,6 +48,7 @@ namespace Entity.Network.Operations
                 return;
 
             NetworkEvents.ChangeNetworkAddress?.Invoke(SteamMatchmaking.GetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), NetworkConstants.HOST_ADDRESS_KEY));
+            Debug.LogWarning(SteamMatchmaking.GetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), NetworkConstants.HOST_ADDRESS_KEY));
             NetworkEvents.StartClient?.Invoke();
         }
     }

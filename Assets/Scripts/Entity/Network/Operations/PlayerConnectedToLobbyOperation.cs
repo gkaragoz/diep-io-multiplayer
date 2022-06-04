@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Entity.Logger;
-using Entity.Player;
 using Entity.UI.Lobby;
 using Enums;
 using Events;
@@ -12,18 +11,18 @@ namespace Entity.Network.Operations
 {
     public class PlayerConnectedToLobbyOperation
     {
-        public void OnServerAddPlayer(NetworkConnection connection)
+        public void OnPlayerConnectedToLobby(ulong lobbySteamId)
         {
-            this.LogWarning("OnServerAddPlayer");
+            this.LogWarning("OnPlayerConnectedToLobby");
             
             var lobbyScreen = (LobbyScreen) UIEvents.ShowScreen?.Invoke(ScreenType.Lobby);
-            var lobbyPlayerList = new List<LobbyPlayer>();
+            var lobbyPlayerList = new List<LobbyPlayerData>();
 
-            var lobbySteamId = new CSteamID(PlayerDataController.Instance.GetLobbySteamId()); 
-            var membersCount = SteamMatchmaking.GetNumLobbyMembers(lobbySteamId);
+            var lobbyCSteamId = new CSteamID(lobbySteamId); 
+            var membersCount = SteamMatchmaking.GetNumLobbyMembers(lobbyCSteamId);
             for (int ii = 0; ii < membersCount; ii++)
             {
-                var memberSteamId = SteamMatchmaking.GetLobbyMemberByIndex(lobbySteamId, ii);
+                var memberSteamId = SteamMatchmaking.GetLobbyMemberByIndex(lobbyCSteamId, ii);
 
                 var name = string.Empty;
                 if (memberSteamId == SteamUser.GetSteamID())
@@ -31,14 +30,14 @@ namespace Entity.Network.Operations
                 else
                     name = SteamFriends.GetFriendPersonaName(memberSteamId);
                 
-                lobbyPlayerList.Add(new LobbyPlayer()
+                lobbyPlayerList.Add(new LobbyPlayerData()
                 {
                     SteamId = memberSteamId.m_SteamID,
                     Name = name,
                 });
             }
             
-            lobbyScreen.Initialize(NetworkClient.isHostClient, lobbyPlayerList);
+            lobbyScreen.Initialize(lobbySteamId, NetworkClient.isHostClient, lobbyPlayerList);
         }
     }
 }

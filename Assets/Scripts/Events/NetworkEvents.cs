@@ -21,14 +21,15 @@ namespace Events
         public static Action<ELobbyType> CreateLobbyOperation { get; set; }
         public static Action ListLobbiesOperation { get; set; }
         public static Action<ulong> JoinLobbyOperation { get; set; }
-        public static Action LeaveLobbyOperation { get; set; }
+        public static Action<ulong> LeaveLobbyOperation { get; set; }
+        
+        public static Action<ulong> SetLobbySteamId { get; set; }
+
 
         #endregion
 
         #region Callbacks
-
-        public static Action<NetworkConnection> OnServerAddPlayer { get; set; }
-        
+        public static Action<ulong> OnPlayerConnectedToLobby { get; set; }
         #endregion
     }
 }

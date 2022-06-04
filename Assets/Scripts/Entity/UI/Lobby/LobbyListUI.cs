@@ -21,12 +21,12 @@ namespace Entity.UI.Lobby
 
         [SerializeField] private Button _btnJoin;
 
-        private ulong _id;
-
+        private ulong _lobbySteamId;
+        
         public void Initialize(LobbyListItem item)
         {
-            _id = item.LobbySteamId;
-
+            _lobbySteamId = item.LobbySteamId;
+            
             SetId(item.LobbySteamId.ToString());
             SetLobbyName(item.LobbyName);
             SetOwnerName(item.OwnerName);
@@ -104,7 +104,7 @@ namespace Entity.UI.Lobby
         {
             UIEvents.HideScreen?.Invoke(ScreenType.Lobbies);
 
-            NetworkEvents.JoinLobbyOperation?.Invoke(_id);
+            NetworkEvents.JoinLobbyOperation?.Invoke(_lobbySteamId);
         }
     }
 }

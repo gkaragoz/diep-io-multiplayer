@@ -28,16 +28,16 @@ namespace Screens
         {
             UIEvents.HideScreen?.Invoke(ScreenType);
 
-            this.Log("OnClick_StartGame");
-            this.Log($"CreateLobbyOperation {ELobbyType.k_ELobbyTypePublic} Invoked");
+            // this.Log("OnClick_StartGame");
+            // this.Log($"CreateLobbyOperation {ELobbyType.k_ELobbyTypePublic} Invoked");
             
             NetworkEvents.CreateLobbyOperation?.Invoke(ELobbyType.k_ELobbyTypePublic);
         }
 
         public void OnClick_JoinGame()
         {
-            this.Log("OnClick_JoinGame");
-            this.Log("ListLobbiesOperation Invoked");
+            // this.Log("OnClick_JoinGame");
+            // this.Log("ListLobbiesOperation Invoked");
 
             UIEvents.HideScreen?.Invoke(ScreenType);
 

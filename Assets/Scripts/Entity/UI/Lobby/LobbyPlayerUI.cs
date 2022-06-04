@@ -9,14 +9,14 @@ namespace Entity.UI.Lobby
         [SerializeField] private TMP_Text _txtPlayerName;
         [SerializeField] private TMP_Text _txtStatus;
 
-        private LobbyPlayer _lobbyPlayer;
+        private LobbyPlayerData _lobbyPlayerData;
 
-        public void Initialize(LobbyPlayer lobbyPlayer)
+        public void Initialize(LobbyPlayerData lobbyPlayerData)
         {
-            _lobbyPlayer = lobbyPlayer;
+            _lobbyPlayerData = lobbyPlayerData;
             
-            SetPlayerName(lobbyPlayer.Name);
-            SetStatus(lobbyPlayer.Status);
+            SetPlayerName(lobbyPlayerData.Name);
+            SetStatus(lobbyPlayerData.Status);
         }
 
         private void SetPlayerName(string playerName)
@@ -34,7 +34,7 @@ namespace Entity.UI.Lobby
 
         public bool IsReady()
         {
-            return _lobbyPlayer.Status == LobbyPlayerStatus.READY;
+            return _lobbyPlayerData.Status == LobbyPlayerStatus.READY;
         }
     }
 }

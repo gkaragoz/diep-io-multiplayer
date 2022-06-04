@@ -10,5 +10,7 @@
         public const string LOBBY_OWNER_NAME_KEY = "LOBBY_OWNER_NAME";
         public const string LOBBY_TYPE_KEY = "LOBBY_TYPE";
         public const string LOBBY_STATUS_KEY = "LOBBY_STATUS";
+
+        public const string LOBBY_STEAM_ID = "LOBBY_STEAM_ID";
     }
 }

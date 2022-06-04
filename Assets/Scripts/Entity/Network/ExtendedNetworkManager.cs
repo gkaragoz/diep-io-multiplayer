@@ -1,11 +1,16 @@
+using System.Collections.Generic;
 using Entity.Network.Operations;
+using Entity.Player;
 using Events;
 using Mirror;
+using UnityEngine;
 
 namespace Entity.Network
 {
     public class ExtendedNetworkManager : NetworkManager
     {
+        public List<PlayerObjectController> PlayerObjectControllers { get; } = new();
+        
         private CreateLobbyOperation _createLobbyOperation;
         private JoinLobbyOperation _joinLobbyOperation;
         private ListLobbiesOperation _listLobbiesOperation;
@@ -15,13 +20,6 @@ namespace Entity.Network
         
         private void OnEnable()
         {
-            _createLobbyOperation = new();
-            _joinLobbyOperation = new();
-            _listLobbiesOperation = new();
-            _leaveLobbyOperation = new();
-
-            _playerConnectedToLobbyOperation = new();
-            
             NetworkEvents.StartHost += StartHost;
             NetworkEvents.StartClient += StartClient;
             NetworkEvents.StartServer += StartServer;
@@ -31,6 +29,13 @@ namespace Entity.Network
             NetworkEvents.StopServer += StopServer;
             
             NetworkEvents.ChangeNetworkAddress += OnChangeNetworkAddressListener;
+            
+            _createLobbyOperation = new();
+            _joinLobbyOperation = new();
+            _listLobbiesOperation = new();
+            _leaveLobbyOperation = new();
+
+            _playerConnectedToLobbyOperation = new();
 
             //Operations
             NetworkEvents.CreateLobbyOperation += _createLobbyOperation.CreateLobbyListener;
@@ -38,7 +43,7 @@ namespace Entity.Network
             NetworkEvents.LeaveLobbyOperation += _leaveLobbyOperation.LeaveLobbyListener;
             NetworkEvents.ListLobbiesOperation += _listLobbiesOperation.ListLobbiesListener;
 
-            NetworkEvents.OnServerAddPlayer += _playerConnectedToLobbyOperation.OnServerAddPlayer;
+            NetworkEvents.OnPlayerConnectedToLobby += _playerConnectedToLobbyOperation.OnPlayerConnectedToLobby;
         }
 
         private void OnDisable()
@@ -59,11 +64,13 @@ namespace Entity.Network
             NetworkEvents.LeaveLobbyOperation -= _leaveLobbyOperation.LeaveLobbyListener;
             NetworkEvents.ListLobbiesOperation -= _listLobbiesOperation.ListLobbiesListener;
 
-            NetworkEvents.OnServerAddPlayer -= _playerConnectedToLobbyOperation.OnServerAddPlayer;
+            NetworkEvents.OnPlayerConnectedToLobby -= _playerConnectedToLobbyOperation.OnPlayerConnectedToLobby;
         }
         
         private void OnChangeNetworkAddressListener(string networkAddress)
         {
+            Debug.LogWarning("WARNING: Not using steam address.");
+            return;
             this.networkAddress = networkAddress;
         }
 
@@ -71,9 +78,22 @@ namespace Entity.Network
 
         public override void OnServerAddPlayer(NetworkConnectionToClient conn)
         {
-            base.OnServerAddPlayer(conn);
-            
-            NetworkEvents.OnServerAddPlayer?.Invoke(conn);
+            Transform startPos = GetStartPosition();
+            GameObject player = startPos != null
+                ? Instantiate(playerPrefab, startPos.position, startPos.rotation)
+                : Instantiate(playerPrefab);
+
+            // instantiating a "Player" prefab gives it the name "Player(clone)"
+            // => appending the connectionId is WAY more useful for debugging!
+            player.name = $"{playerPrefab.name} [connId={conn.connectionId}]";
+            NetworkServer.AddPlayerForConnection(conn, player);
+
+            PlayerObjectControllers.Add(player.GetComponent<PlayerObjectController>());
+        }
+
+        public override void OnClientConnect()
+        {
+            base.OnClientConnect();
         }
 
         #endregion
