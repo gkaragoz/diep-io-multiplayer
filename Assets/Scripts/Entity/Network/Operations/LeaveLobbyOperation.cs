@@ -12,7 +12,7 @@ namespace Entity.Network.Operations
             if (lobbySteamId == 0)
                 return;
          
-            this.Log("LeaveLobby");
+            this.Log($"LeaveLobby {lobbySteamId}");
             
             SteamMatchmaking.LeaveLobby(new CSteamID(lobbySteamId));
             NetworkEvents.StopClient?.Invoke();

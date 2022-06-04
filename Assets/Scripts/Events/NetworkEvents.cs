@@ -22,14 +22,12 @@ namespace Events
         public static Action ListLobbiesOperation { get; set; }
         public static Action<ulong> JoinLobbyOperation { get; set; }
         public static Action<ulong> LeaveLobbyOperation { get; set; }
-        
-        public static Action<ulong> SetLobbySteamId { get; set; }
-
 
         #endregion
 
         #region Callbacks
-        public static Action<ulong> OnPlayerConnectedToLobby { get; set; }
+        public static Action<bool, int> OnPlayerConnectedToLobby { get; set; }
+        public static Action<bool, int> OnPlayerDisconnectedFromLobby { get; set; }
         #endregion
     }
 }

@@ -657,6 +657,7 @@ MonoBehaviour:
   autoCreatePlayer: 1
   playerSpawnMethod: 0
   spawnPrefabs: []
+  _playerObjectControllers: []
 --- !u!114 &778044980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -934,11 +935,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4503998417127328744, guid: 9eb2b0d59b14aad41b345f330315c11c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 955
+      value: 579.0064
       objectReference: {fileID: 0}
     - target: {fileID: 4503998417127328744, guid: 9eb2b0d59b14aad41b345f330315c11c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1442.5
+      value: 878.50964
       objectReference: {fileID: 0}
     - target: {fileID: 4503998417127328744, guid: 9eb2b0d59b14aad41b345f330315c11c, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -954,11 +955,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4582886047768143112, guid: 9eb2b0d59b14aad41b345f330315c11c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 955
+      value: 579.0064
       objectReference: {fileID: 0}
     - target: {fileID: 4582886047768143112, guid: 9eb2b0d59b14aad41b345f330315c11c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 477.5
+      value: 289.5032
       objectReference: {fileID: 0}
     - target: {fileID: 4582886047768143112, guid: 9eb2b0d59b14aad41b345f330315c11c, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -966,7 +967,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6478191938268020323, guid: 9eb2b0d59b14aad41b345f330315c11c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -853
+      value: -1548.323
       objectReference: {fileID: 0}
     - target: {fileID: 6856513867717718207, guid: 9eb2b0d59b14aad41b345f330315c11c, type: 3}
       propertyPath: m_AnchoredPosition.x

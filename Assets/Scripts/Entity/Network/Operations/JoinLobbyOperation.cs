@@ -46,7 +46,7 @@ namespace Entity.Network.Operations
             // Clients
             if (NetworkServer.active)
                 return;
-
+            
             NetworkEvents.ChangeNetworkAddress?.Invoke(SteamMatchmaking.GetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), NetworkConstants.HOST_ADDRESS_KEY));
             Debug.LogWarning(SteamMatchmaking.GetLobbyData(new CSteamID(callback.m_ulSteamIDLobby), NetworkConstants.HOST_ADDRESS_KEY));
             NetworkEvents.StartClient?.Invoke();

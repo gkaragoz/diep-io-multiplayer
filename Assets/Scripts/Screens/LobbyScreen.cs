@@ -23,15 +23,12 @@ namespace Screens
         
         #endregion
         
-        private List<LobbyPlayerUI> _lobbyPlayerList;
+        private readonly List<LobbyPlayerUI> _lobbyPlayerList = new();
         private ulong _lobbySteamId;
 
         public void Initialize(ulong lobbySteamId, bool isOwner, List<LobbyPlayerData> lobbyPlayerList)
         {
             _lobbySteamId = lobbySteamId;
-            
-            ClearList();
-            _lobbyPlayerList = new List<LobbyPlayerUI>();
             
             foreach (var lobbyPlayer in lobbyPlayerList)
                 CreateLobbyPlayer(lobbyPlayer);
@@ -50,10 +47,30 @@ namespace Screens
 
         private void CreateLobbyPlayer(LobbyPlayerData lobbyPlayerData)
         {
-            var lobbyListItemUI = Instantiate(_lobbyPlayerUIPrefab, _contentParent);
-            lobbyListItemUI.Initialize(lobbyPlayerData);
+            var lobbyPlayerUI = Instantiate(_lobbyPlayerUIPrefab, _contentParent);
+            lobbyPlayerUI.Initialize(lobbyPlayerData);
             
-            _lobbyPlayerList.Add(lobbyListItemUI);
+            _lobbyPlayerList.Add(lobbyPlayerUI);
+        }
+
+        private void RemoveLobbyPlayer(LobbyPlayerUI lobbyPlayerUI)
+        {
+            _lobbyPlayerList.Remove(lobbyPlayerUI);
+            
+            Destroy(lobbyPlayerUI.gameObject);
+        }
+
+        public void OnPlayerDisconnectedFromLobby(int connectionId)
+        {
+            var disconnectedLobbyPlayerUI = _lobbyPlayerList.FirstOrDefault(x => x.Data.ConnectionID == connectionId);
+
+            if (disconnectedLobbyPlayerUI == null)
+            {
+                Debug.LogError("Disconnected player not found in lobby.");
+                return;
+            }
+            
+            RemoveLobbyPlayer(disconnectedLobbyPlayerUI);
         }
 
         private void ClearList()
@@ -63,12 +80,16 @@ namespace Screens
             
             foreach (var lobbyPlayerUI in _lobbyPlayerList)
                 Destroy(lobbyPlayerUI.gameObject);
+            
+            _lobbyPlayerList.Clear();
         }
 
         #region Editor Callbacks
 
         public void OnClick_BackToMainMenu()
         {
+            ClearList();
+            
             // this.Log("OnClick_BackToMainMenu");
             // this.Log("LeaveLobbyOperation Invoked");
             
@@ -78,6 +99,5 @@ namespace Screens
         }
         
         #endregion
-        
     }
 }

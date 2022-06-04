@@ -10,6 +10,7 @@ namespace Events
 
         public static Func<ScreenType, IScreen> ShowScreen { get; set; }
         public static Func<ScreenType, IScreen> HideScreen { get; set; }
+        public static Func<ScreenType, IScreen> GetScreen { get; set; }
 
         #endregion
     }

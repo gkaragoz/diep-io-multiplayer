@@ -35,6 +35,7 @@ namespace Entity.UI.UIManager
         {
             UIEvents.ShowScreen += ShowScreen;
             UIEvents.HideScreen += HideScreen;
+            UIEvents.GetScreen += GetScreen;
         }
 
         private void OnDisable()
@@ -46,6 +47,7 @@ namespace Entity.UI.UIManager
         {
             UIEvents.ShowScreen -= ShowScreen;
             UIEvents.HideScreen -= HideScreen;
+            UIEvents.GetScreen -= GetScreen;
         }
 
         private Screen.Screen[] FindAllScreenReferences(bool includeInactive = true)
@@ -53,7 +55,7 @@ namespace Entity.UI.UIManager
             return FindObjectsOfType<Screen.Screen>(includeInactive);
         }
 
-        private IScreen GetScreen(ScreenType screenType)
+        public IScreen GetScreen(ScreenType screenType)
         {
             if (!ScreensDict.ContainsKey(screenType))
                 throw new KeyNotFoundException($"{screenType} key not found.");

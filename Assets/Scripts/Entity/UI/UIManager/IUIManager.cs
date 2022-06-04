@@ -11,5 +11,6 @@ namespace Entity.UI.UIManager
         
         IScreen ShowScreen(ScreenType screenType);
         IScreen HideScreen(ScreenType screenType);
+        IScreen GetScreen(ScreenType screenType);
     }
 }

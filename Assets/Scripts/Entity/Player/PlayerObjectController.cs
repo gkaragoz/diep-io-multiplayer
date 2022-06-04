@@ -1,26 +1,38 @@
-﻿using Constants;
+﻿using Entity.Logger;
+using Events;
 using Mirror;
-using UnityEngine;
+using Steamworks;
 
 namespace Entity.Player
 {
     public class PlayerObjectController : NetworkBehaviour
     {
-        public ulong lobbySteamId;
-        
+        [SyncVar] public ulong lobbySteamId;
         [SyncVar] public int connectionId;
-        [SyncVar] public int mirrorIdNumber;
         [SyncVar] public ulong steamId;
-        [SyncVar(hook = nameof(PlayerNameUpdate))] public string playerName;
 
-        private void Awake()
+        public void Initialize(ulong lobbySteamId, int connectionId)
         {
-            lobbySteamId = ulong.Parse(PlayerPrefs.GetString(NetworkConstants.LOBBY_STEAM_ID));
+            this.lobbySteamId = lobbySteamId;
+            this.connectionId = connectionId;
+            this.steamId = SteamUser.GetSteamID().m_SteamID;
+            
+            this.LogWarning( "steamId" + steamId);
         }
 
-        public void PlayerNameUpdate(string oldValue, string newValue)
+        public override void OnStartAuthority()
         {
-            
+            gameObject.name = "LocalGamePlayer";
+        }
+
+        public override void OnStartClient()
+        {
+            NetworkEvents.OnPlayerConnectedToLobby?.Invoke(isLocalPlayer, connectionId);
+        }
+
+        public override void OnStopClient()
+        {
+            NetworkEvents.OnPlayerDisconnectedFromLobby?.Invoke(isLocalPlayer, connectionId);
         }
     }
 }
