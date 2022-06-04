@@ -2,7 +2,7 @@
 using Mirror;
 using Steamworks;
 
-namespace Assets.Scripts.Events
+namespace Events
 {
     public static class NetworkEvents
     {
@@ -18,16 +18,16 @@ namespace Assets.Scripts.Events
         public static Action StopServer{ get; set; }
         public static Action StopClient { get; set; }
         
-        public static Action<ELobbyType> CreateLobbyCommand { get; set; }
-        public static Action ListLobbiesCommand { get; set; }
-        public static Action<ulong> JoinLobbyCommand { get; set; }
-        public static Action LeaveLobbyCommand { get; set; }
+        public static Action<ELobbyType> CreateLobbyOperation { get; set; }
+        public static Action ListLobbiesOperation { get; set; }
+        public static Action<ulong> JoinLobbyOperation { get; set; }
+        public static Action LeaveLobbyOperation { get; set; }
 
         #endregion
 
         #region Callbacks
 
-        public  static Action<NetworkConnection> OnServerAddPlayer { get; set; }
+        public static Action<NetworkConnection> OnServerAddPlayer { get; set; }
         
         #endregion
     }

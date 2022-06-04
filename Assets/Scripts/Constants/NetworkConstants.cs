@@ -1,4 +1,4 @@
-﻿namespace Assets.Scripts.Constants
+﻿namespace Constants
 {
     public class NetworkConstants
     {

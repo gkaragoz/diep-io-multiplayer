@@ -1,29 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
-using Assets.Scripts.Constants;
-using Assets.Scripts.Entity;
-using Assets.Scripts.Entity.Controllers;
-using Assets.Scripts.Entity.Logger;
-using Assets.Scripts.Entity.UI.Lobby;
-using Assets.Scripts.Enums;
-using Assets.Scripts.Events;
-using Assets.Scripts.Screens;
+using Constants;
+using Entity.Logger;
+using Entity.UI.Lobby;
+using Enums;
+using Events;
+using Screens;
 using Steamworks;
 
-namespace Assets.Scripts.Controllers
+namespace Entity.Network.Operations
 {
-    public class ListLobbiesCommand : Command
+    public class ListLobbiesOperation
     {
-        protected CallResult<LobbyMatchList_t> RequestLobbyList;
+        private CallResult<LobbyMatchList_t> _requestLobbyList;
 
-        public ListLobbiesCommand()
+        public ListLobbiesOperation()
         {
-            NetworkEvents.ListLobbiesCommand += ListLobbiesListener;
+            NetworkEvents.ListLobbiesOperation += ListLobbiesListener;
 
             if (!SteamManager.Initialized)
                 return;
 
-            RequestLobbyList = CallResult<LobbyMatchList_t>.Create(OnLobbyListRefreshed);
+            _requestLobbyList = CallResult<LobbyMatchList_t>.Create(OnLobbyListRefreshed);
+        }
+
+        ~ListLobbiesOperation()
+        {
+            NetworkEvents.ListLobbiesOperation -= ListLobbiesListener;
         }
 
         private void OnLobbyListRefreshed(LobbyMatchList_t callback, bool bIOFailure)
@@ -48,8 +51,10 @@ namespace Assets.Scripts.Controllers
                     OwnerName = SteamMatchmaking.GetLobbyData(lobbySteamId, NetworkConstants.LOBBY_OWNER_NAME_KEY),
                     CurrentPlayersCount = SteamMatchmaking.GetNumLobbyMembers(lobbySteamId),
                     MaxPlayersCount = SteamMatchmaking.GetLobbyMemberLimit(lobbySteamId),
-                    IsPrivate = bool.Parse(SteamMatchmaking.GetLobbyData(lobbySteamId, NetworkConstants.LOBBY_TYPE_KEY)),
-                    Status = (LobbyStatus)Enum.Parse(typeof(LobbyStatus), SteamMatchmaking.GetLobbyData(lobbySteamId, NetworkConstants.LOBBY_STATUS_KEY)),
+                    IsPrivate =
+                        bool.Parse(SteamMatchmaking.GetLobbyData(lobbySteamId, NetworkConstants.LOBBY_TYPE_KEY)),
+                    Status = (LobbyStatus) Enum.Parse(typeof(LobbyStatus),
+                        SteamMatchmaking.GetLobbyData(lobbySteamId, NetworkConstants.LOBBY_STATUS_KEY)),
                 };
 
                 lobbyListItems.Add(lobbyListItem);
@@ -63,8 +68,9 @@ namespace Assets.Scripts.Controllers
         private void ListLobbiesListener()
         {
             this.Log("RequestLobbyList");
-            SteamMatchmaking.AddRequestLobbyListStringFilter(NetworkConstants.LOBBY_OWNER_NAME_KEY, "Whoaa", ELobbyComparison.k_ELobbyComparisonEqualToOrGreaterThan);
-            RequestLobbyList.Set(SteamMatchmaking.RequestLobbyList());
+            SteamMatchmaking.AddRequestLobbyListStringFilter(NetworkConstants.LOBBY_OWNER_NAME_KEY, "Whoaa",
+                ELobbyComparison.k_ELobbyComparisonEqualToOrGreaterThan);
+            _requestLobbyList.Set(SteamMatchmaking.RequestLobbyList());
         }
     }
 }

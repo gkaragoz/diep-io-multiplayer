@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Assets.Scripts.Entity.UI.Screen;
-using Assets.Scripts.Enums;
+using Entity.UI.Screen;
+using Enums;
 
-namespace Assets.Scripts.Entity.UI.UIManager
+namespace Entity.UI.UIManager
 {
     public interface IUIManager
     {

@@ -1,6 +1,6 @@
-﻿using Assets.Scripts.Enums;
+﻿using Enums;
 
-namespace Assets.Scripts.Entity.UI.Lobby
+namespace Entity.UI.Lobby
 {
     public class LobbyPlayer
     {

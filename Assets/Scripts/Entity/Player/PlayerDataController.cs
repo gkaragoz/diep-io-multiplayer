@@ -1,7 +1,7 @@
-﻿using Assets.Scripts.Data.UnityObject;
+﻿using Data.UnityObject;
 using UnityEngine;
 
-namespace Assets.Scripts.Entity.Player
+namespace Entity.Player
 {
     public class PlayerDataController
     {

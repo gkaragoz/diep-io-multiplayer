@@ -1,28 +1,30 @@
 ﻿using System.Collections.Generic;
-using Assets.Scripts.Entity.Controllers;
-using Assets.Scripts.Entity.Logger;
-using Assets.Scripts.Entity.Player;
-using Assets.Scripts.Entity.UI.Lobby;
-using Assets.Scripts.Enums;
-using Assets.Scripts.Events;
-using Assets.Scripts.Screens;
+using Entity.Logger;
+using Entity.Player;
+using Entity.UI.Lobby;
+using Enums;
+using Events;
 using Mirror;
+using Screens;
 using Steamworks;
 
-namespace Assets.Scripts.Controllers
+namespace Entity.Network.Operations
 {
-    public class PlayerConnectedToLobbyCommand : Command
+    public class PlayerConnectedToLobbyOperation
     {
-        public PlayerConnectedToLobbyCommand()
+        public PlayerConnectedToLobbyOperation()
         {
             NetworkEvents.OnServerAddPlayer += OnServerAddPlayer;
+        }
+
+        ~PlayerConnectedToLobbyOperation()
+        {
+            NetworkEvents.OnServerAddPlayer -= OnServerAddPlayer;
         }
 
         private void OnServerAddPlayer(NetworkConnection connection)
         {
             this.LogWarning("OnServerAddPlayer");
-            
-            return;
             
             var lobbyScreen = (LobbyScreen) UIEvents.ShowScreen?.Invoke(ScreenType.Lobby);
             var lobbyPlayerList = new List<LobbyPlayer>();

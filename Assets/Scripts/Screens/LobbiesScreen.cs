@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using Assets.Scripts.Entity.UI.Lobby;
-using Assets.Scripts.Enums;
-using Assets.Scripts.Events;
+using Entity.UI.Lobby;
+using Enums;
+using Events;
 using UnityEngine;
 
-namespace Assets.Scripts.Screens
+namespace Screens
 {
     public class LobbiesScreen : Entity.UI.Screen.Screen
     {
@@ -55,7 +55,7 @@ namespace Assets.Scripts.Screens
 
         public void OnClick_RefreshLobbies()
         {
-            NetworkEvents.ListLobbiesCommand?.Invoke();
+            NetworkEvents.ListLobbiesOperation?.Invoke();
         }
         
         #endregion

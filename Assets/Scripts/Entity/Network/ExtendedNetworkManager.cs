@@ -1,10 +1,18 @@
-using Assets.Scripts.Events;
+using Entity.Network.Operations;
+using Events;
 using Mirror;
 
-namespace Assets.Scripts.Entity
+namespace Entity.Network
 {
     public class ExtendedNetworkManager : NetworkManager
     {
+        private CreateLobbyOperation _createLobbyOperation;
+        private JoinLobbyOperation _joinLobbyOperation;
+        private ListLobbiesOperation _listLobbiesOperation;
+        private LeaveLobbyOperation _leaveLobbyOperation;
+
+        private PlayerConnectedToLobbyOperation _playerConnectedToLobbyOperation;
+        
         private void OnEnable()
         {
             NetworkEvents.StartHost += StartHost;
@@ -16,6 +24,13 @@ namespace Assets.Scripts.Entity
             NetworkEvents.StopServer += StopServer;
             
             NetworkEvents.ChangeNetworkAddress += OnChangeNetworkAddressListener;
+
+            _createLobbyOperation = new();
+            _joinLobbyOperation = new();
+            _listLobbiesOperation = new();
+            _leaveLobbyOperation = new();
+
+            _playerConnectedToLobbyOperation = new();
         }
 
         private void OnDisable()

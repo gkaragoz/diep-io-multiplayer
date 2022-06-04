@@ -1,8 +1,8 @@
-﻿using Assets.Scripts.Enums;
+﻿using Enums;
 using TMPro;
 using UnityEngine;
 
-namespace Assets.Scripts.Entity.UI.Lobby
+namespace Entity.UI.Lobby
 {
     public class LobbyPlayerUI : MonoBehaviour
     {

@@ -249,6 +249,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -1924,6 +1925,82 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      blue_tanks_55: 2211897948444668221
+      blue_tanks_69: 830931869242482190
+      blue_tanks_4: -146240269662842753
+      blue_tanks_12: 8715752193195639101
+      blue_tanks_34: -2044973157694051048
+      blue_tanks_20: -8509127519452779701
+      blue_tanks_17: -6949924646037801394
+      blue_tanks_38: -6764205061500731881
+      blue_tanks_18: -5784547013833867949
+      blue_tanks_68: -2529459726910574224
+      blue_tanks_46: -2879967034126042036
+      blue_tanks_3: -8267880755938103737
+      blue_tanks_31: 4923042126964795696
+      blue_tanks_48: -4588659622750348526
+      blue_tanks_49: -8759318150128124226
+      blue_tanks_42: 4970102177441391360
+      blue_tanks_54: -2233048070044931616
+      blue_tanks_8: -6870703335028859714
+      blue_tanks_15: 3616653465053035092
+      blue_tanks_0: 7557684228600623069
+      blue_tanks_19: -102217037263229803
+      blue_tanks_21: -3856076823825002427
+      blue_tanks_45: 8584018722118439749
+      blue_tanks_43: -4207538503375193492
+      blue_tanks_72: 2753945886854629339
+      blue_tanks_67: 1359454798219704042
+      blue_tanks_1: -193557184292034074
+      blue_tanks_44: 2137141371771941008
+      blue_tanks_58: -6845954896373068899
+      blue_tanks_47: -405322603451482358
+      blue_tanks_73: -4138392998821272092
+      blue_tanks_36: 2760547392527581971
+      blue_tanks_9: 3782785307086557936
+      blue_tanks_53: -7344260781994693925
+      blue_tanks_23: -8948935472799315073
+      blue_tanks_29: 4145012762578103347
+      blue_tanks_39: 912363292950482770
+      blue_tanks_22: 4180362890170685832
+      blue_tanks_61: 5345621840298938831
+      blue_tanks_62: -7900192450993562648
+      blue_tanks_52: 571949153752975377
+      blue_tanks_63: -7825178667724791281
+      blue_tanks_64: 2898988190756368266
+      blue_tanks_70: 2282763773998482950
+      blue_tanks_2: 3954412565058264388
+      blue_tanks_11: 4751623064668786270
+      blue_tanks_33: 5929300592804578597
+      blue_tanks_14: 6854914934192785560
+      blue_tanks_56: -2751590368120922989
+      blue_tanks_37: -5092749408122512781
+      blue_tanks_40: -777008046615092272
+      blue_tanks_50: -1398818944298988744
+      blue_tanks_60: -700252653678270389
+      blue_tanks_7: -560754949846602052
+      blue_tanks_6: -5375877717741610523
+      blue_tanks_5: 4361649349572842382
+      blue_tanks_51: 8647211255008745328
+      blue_tanks_59: 5974291375750300196
+      blue_tanks_71: -5356644601695685880
+      blue_tanks_35: 1865143384727800149
+      blue_tanks_13: 8986414625648452791
+      blue_tanks_25: 8195718225774482207
+      blue_tanks_30: 4399593752745424676
+      blue_tanks_66: 3134995981004232188
+      blue_tanks_10: 8910940149993193722
+      blue_tanks_27: 2881134201738390433
+      blue_tanks_74: -5363817859756228650
+      blue_tanks_28: 5673187462554794810
+      blue_tanks_41: -3392442971306741982
+      blue_tanks_57: 428240165475875867
+      blue_tanks_24: 1379048844603710205
+      blue_tanks_65: -9048939455439249682
+      blue_tanks_26: 667209600891959899
+      blue_tanks_32: -3762147350575402969
+      blue_tanks_16: -797749156543929101
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

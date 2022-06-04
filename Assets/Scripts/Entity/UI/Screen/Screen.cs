@@ -1,7 +1,7 @@
-﻿using Assets.Scripts.Enums;
+﻿using Enums;
 using UnityEngine;
 
-namespace Assets.Scripts.Entity.UI.Screen
+namespace Entity.UI.Screen
 {
     public abstract class Screen : MonoBehaviour, IScreen
     {

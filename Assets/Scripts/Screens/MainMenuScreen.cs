@@ -1,12 +1,12 @@
-﻿using Assets.Scripts.Entity.Logger;
-using Assets.Scripts.Enums;
-using Assets.Scripts.Events;
+﻿using Entity.Logger;
+using Enums;
+using Events;
 using Steamworks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Screens
+namespace Screens
 {
     public class MainMenuScreen : Entity.UI.Screen.Screen
     {
@@ -28,7 +28,7 @@ namespace Assets.Scripts.Screens
         {
             UIEvents.HideScreen?.Invoke(ScreenType);
 
-            NetworkEvents.CreateLobbyCommand?.Invoke(ELobbyType.k_ELobbyTypePublic);
+            NetworkEvents.CreateLobbyOperation?.Invoke(ELobbyType.k_ELobbyTypePublic);
         }
 
         public void OnClick_JoinGame()
@@ -37,7 +37,7 @@ namespace Assets.Scripts.Screens
 
             UIEvents.HideScreen?.Invoke(ScreenType);
 
-            NetworkEvents.ListLobbiesCommand?.Invoke();
+            NetworkEvents.ListLobbiesOperation?.Invoke();
         }
 
         #endregion

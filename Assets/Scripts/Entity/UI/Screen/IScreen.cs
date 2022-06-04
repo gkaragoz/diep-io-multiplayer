@@ -1,6 +1,6 @@
-﻿using Assets.Scripts.Enums;
+﻿using Enums;
 
-namespace Assets.Scripts.Entity.UI.Screen
+namespace Entity.UI.Screen
 {
     public interface IScreen
     {

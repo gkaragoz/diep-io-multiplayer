@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Entity.UI
+namespace Entity.UI
 {
     public class UIMultiGraphicButton : Button {
         protected override void DoStateTransition(SelectionState state, bool instant) {

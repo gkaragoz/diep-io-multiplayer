@@ -1,11 +1,11 @@
 ﻿using System;
-using Assets.Scripts.Enums;
-using Assets.Scripts.Events;
+using Enums;
+using Events;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Entity.UI.Lobby
+namespace Entity.UI.Lobby
 {
     public class LobbyListUI : MonoBehaviour
     {
@@ -104,7 +104,7 @@ namespace Assets.Scripts.Entity.UI.Lobby
         {
             UIEvents.HideScreen?.Invoke(ScreenType.Lobbies);
 
-            NetworkEvents.JoinLobbyCommand?.Invoke(_id);
+            NetworkEvents.JoinLobbyOperation?.Invoke(_id);
         }
     }
 }

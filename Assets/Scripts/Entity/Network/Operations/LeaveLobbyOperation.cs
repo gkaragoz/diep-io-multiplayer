@@ -1,17 +1,21 @@
-﻿using Assets.Scripts.Entity.Controllers;
-using Assets.Scripts.Entity.Logger;
-using Assets.Scripts.Entity.Player;
-using Assets.Scripts.Enums;
-using Assets.Scripts.Events;
+﻿using Entity.Logger;
+using Entity.Player;
+using Enums;
+using Events;
 using Steamworks;
 
-namespace Assets.Scripts.Controllers
+namespace Entity.Network.Operations
 {
-    public class LeaveLobbyCommand : Command
+    public class LeaveLobbyOperation
     {
-        public LeaveLobbyCommand()
+        public LeaveLobbyOperation()
         {
-            NetworkEvents.LeaveLobbyCommand += LeaveLobbyListener;
+            NetworkEvents.LeaveLobbyOperation += LeaveLobbyListener;
+        }
+
+        ~LeaveLobbyOperation()
+        {
+            NetworkEvents.LeaveLobbyOperation -= LeaveLobbyListener;
         }
 
         private void LeaveLobbyListener()

@@ -1,7 +1,7 @@
-﻿using Assets.Scripts.Data.ValueObject;
+﻿using Data.ValueObject;
 using UnityEngine;
 
-namespace Assets.Scripts.Data.UnityObject
+namespace Data.UnityObject
 {
     [CreateAssetMenu(fileName = "RD_PlayerData", menuName = "Data/PlayerData", order = 0)]
     public class RD_PlayerData : ScriptableObject

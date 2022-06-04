@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using Assets.Scripts.Entity.UI.Screen;
-using Assets.Scripts.Enums;
-using Assets.Scripts.Events;
+using Entity.UI.Screen;
+using Enums;
+using Events;
 using UnityEngine;
 
-namespace Assets.Scripts.Entity.UI.UIManager
+namespace Entity.UI.UIManager
 {
     public class UIManager : MonoBehaviour, IUIManager
     {
-        public Dictionary<ScreenType, IScreen> ScreensDict { get; } = new Dictionary<ScreenType, IScreen>();
+        public Dictionary<ScreenType, IScreen> ScreensDict { get; } = new();
 
         public void Setup()
         {

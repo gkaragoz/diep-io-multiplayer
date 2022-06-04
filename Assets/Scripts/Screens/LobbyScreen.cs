@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Assets.Scripts.Entity.UI.Lobby;
-using Assets.Scripts.Enums;
-using Assets.Scripts.Events;
+using Entity.UI.Lobby;
+using Enums;
+using Events;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Screens
+namespace Screens
 {
     public class LobbyScreen : Entity.UI.Screen.Screen
     {
@@ -67,7 +67,7 @@ namespace Assets.Scripts.Screens
         {
             UIEvents.HideScreen?.Invoke(ScreenType);
             
-            NetworkEvents.LeaveLobbyCommand?.Invoke();
+            NetworkEvents.LeaveLobbyOperation?.Invoke();
         }
         
         #endregion

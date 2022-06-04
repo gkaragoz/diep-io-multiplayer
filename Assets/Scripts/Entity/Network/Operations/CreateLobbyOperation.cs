@@ -1,15 +1,13 @@
-﻿using Assets.Scripts.Constants;
-using Assets.Scripts.Entity;
-using Assets.Scripts.Entity.Controllers;
-using Assets.Scripts.Entity.Logger;
-using Assets.Scripts.Enums;
-using Assets.Scripts.Events;
+using Constants;
+using Entity.Logger;
+using Enums;
+using Events;
 using Mirror;
 using Steamworks;
 
-namespace Assets.Scripts.Controllers
+namespace Entity.Network.Operations
 {
-    public class CreateLobbyCommand : Command
+    public class CreateLobbyOperation
     {
         private Callback<LobbyCreated_t> _lobbyCreated;
 
@@ -37,14 +35,19 @@ namespace Assets.Scripts.Controllers
 
         private ELobbyType _lobbyType;
 
-        public CreateLobbyCommand()
+        public CreateLobbyOperation()
         {
-            NetworkEvents.CreateLobbyCommand += CreateLobbyListener;
+            NetworkEvents.CreateLobbyOperation += CreateLobbyListener;
 
             if (!SteamManager.Initialized)
                 return;
 
             _lobbyCreated = Callback<LobbyCreated_t>.Create(OnLobbyCreated);
+        }
+
+        ~CreateLobbyOperation()
+        {
+            NetworkEvents.CreateLobbyOperation -= CreateLobbyListener;
         }
 
         private void OnLobbyCreated(LobbyCreated_t callback)
