@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Entity.Logger;
+using Entity.Player;
 using Entity.UI.Lobby;
 using Enums;
 using Events;
@@ -22,7 +23,8 @@ namespace Screens
         [SerializeField] private Button _btnStartGame;
         
         #endregion
-        
+
+        private PlayerObjectController _localPlayerObjectController;
         private readonly List<LobbyPlayerUI> _lobbyPlayerList = new();
         private ulong _lobbySteamId;
 
@@ -33,15 +35,19 @@ namespace Screens
             foreach (var lobbyPlayer in lobbyPlayerList)
                 CreateLobbyPlayer(lobbyPlayer);
             
-            SetButtons(isOwner);
+            SetButtonVisibilities(isOwner);
+            UpdateReadyButton();
         }
 
-        private void SetButtons(bool isOwner)
+        private void SetButtonVisibilities(bool isOwner)
         {
             _btnReady.gameObject.SetActive(!isOwner);
             _btnStartGame.gameObject.SetActive(isOwner);
+        }
 
-            var isReadyToPlay = _lobbyPlayerList.Count > 1 && _lobbyPlayerList.All(x => x.IsReady());
+        private void UpdateReadyButton()
+        {
+            var isReadyToPlay = _lobbyPlayerList.Count > 1 && _lobbyPlayerList.All(x => x.Data.IsReady);
             _btnStartGame.interactable = isReadyToPlay;
         }
 
@@ -49,6 +55,11 @@ namespace Screens
         {
             var lobbyPlayerUI = Instantiate(_lobbyPlayerUIPrefab, _contentParent);
             lobbyPlayerUI.Initialize(lobbyPlayerData);
+
+            if (lobbyPlayerData.PlayerObjectController.isLocalPlayer)
+            {
+                _localPlayerObjectController = lobbyPlayerData.PlayerObjectController;
+            }
             
             _lobbyPlayerList.Add(lobbyPlayerUI);
         }
@@ -60,9 +71,22 @@ namespace Screens
             Destroy(lobbyPlayerUI.gameObject);
         }
 
+        public void OnPlayerChangeReadyStatus(bool newStatus, int connectionId)
+        {
+            var disconnectedLobbyPlayerUI = _lobbyPlayerList.FirstOrDefault(x => x.Data.PlayerObjectController.connectionId == connectionId);
+
+            if (disconnectedLobbyPlayerUI == null)
+            {
+                Debug.LogError("Player not found in lobby.");
+                return;
+            }
+            
+            disconnectedLobbyPlayerUI.SetReadyStatus(newStatus);
+        }
+
         public void OnPlayerDisconnectedFromLobby(int connectionId)
         {
-            var disconnectedLobbyPlayerUI = _lobbyPlayerList.FirstOrDefault(x => x.Data.ConnectionID == connectionId);
+            var disconnectedLobbyPlayerUI = _lobbyPlayerList.FirstOrDefault(x => x.Data.PlayerObjectController.connectionId == connectionId);
 
             if (disconnectedLobbyPlayerUI == null)
             {
@@ -85,6 +109,11 @@ namespace Screens
         }
 
         #region Editor Callbacks
+
+        public void OnClick_ChangeReadyStatus()
+        {
+            _localPlayerObjectController.ChangePlayerReady();
+        }
 
         public void OnClick_BackToMainMenu()
         {

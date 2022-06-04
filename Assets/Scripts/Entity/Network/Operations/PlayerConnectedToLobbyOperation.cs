@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Constants;
 using Entity.Logger;
+using Entity.Player;
 using Entity.UI.Lobby;
 using Enums;
 using Events;
@@ -13,7 +14,7 @@ namespace Entity.Network.Operations
 {
     public class PlayerConnectedToLobbyOperation
     {
-        public void OnPlayerConnectedToLobby(bool isLocalPlayer, int connectionId)
+        public void OnPlayerConnectedToLobby(PlayerObjectController playerObjectController)
         {
             this.LogWarning("OnPlayerConnectedToLobby");
             
@@ -27,7 +28,7 @@ namespace Entity.Network.Operations
             {
                 var memberSteamId = SteamMatchmaking.GetLobbyMemberByIndex(lobbyCSteamId, ii);
 
-                var name = isLocalPlayer ? "(you) " : string.Empty;
+                var name = playerObjectController.isLocalPlayer ? "(you) " : string.Empty;
                 if (memberSteamId == SteamUser.GetSteamID())
                     name += SteamFriends.GetPersonaName();
                 else
@@ -35,9 +36,8 @@ namespace Entity.Network.Operations
                 
                 lobbyPlayerList.Add(new LobbyPlayerData()
                 {
-                    SteamId = memberSteamId.m_SteamID,
-                    ConnectionID = connectionId,
-                    Name = name,
+                    PlayerObjectController = playerObjectController,
+                    Name = name
                 });
             }
             

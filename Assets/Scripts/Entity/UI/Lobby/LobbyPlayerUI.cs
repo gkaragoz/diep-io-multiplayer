@@ -1,6 +1,7 @@
 ﻿using System;
 using Entity.Network;
 using Enums;
+using Events;
 using Steamworks;
 using TMPro;
 using UnityEngine;
@@ -23,29 +24,20 @@ namespace Entity.UI.Lobby
             Data = lobbyPlayerData;
             _imageLoadedCallback = Callback<AvatarImageLoaded_t>.Create(OnImageLoaded);
             
-            SetPlayerName(lobbyPlayerData.Name);
-            SetStatus(lobbyPlayerData.Status);
+            SetPlayerName();
+            SetReadyStatus(Data.IsReady);
             
             if (Data.AvatarReceived == false)
                 PlayerIconRequest();
         }
 
-        private void SetPlayerName(string playerName)
+        private void SetPlayerName()
         {
-            _txtPlayerName.text = $"{playerName}";
+            _txtPlayerName.text = $"{Data.Name}";
         }
-
-        private void SetStatus(LobbyPlayerStatus status)
-        {
-            if (status == LobbyPlayerStatus.READY)
-                _txtStatus.text = "READY";
-            else
-                _txtStatus.text = "NOT READY";
-        }
-
         private void PlayerIconRequest()
         {
-            int imageId = SteamFriends.GetLargeFriendAvatar((CSteamID) Data.SteamId);
+            int imageId = SteamFriends.GetLargeFriendAvatar((CSteamID) Data.PlayerObjectController.steamId);
             if (imageId == -1)
                 return;
 
@@ -54,7 +46,7 @@ namespace Entity.UI.Lobby
         
         private void OnImageLoaded(AvatarImageLoaded_t callback)
         {
-            if (callback.m_steamID.m_SteamID == Data.SteamId)
+            if (callback.m_steamID.m_SteamID == Data.PlayerObjectController.steamId)
                 _imgIcon.texture = SteamHelpers.GetSteamImageAsTexture(callback.m_iImage);
             else //another player
                 return;
@@ -62,9 +54,14 @@ namespace Entity.UI.Lobby
             Data.AvatarReceived = true;
         }
 
-        public bool IsReady()
+        public void SetReadyStatus(bool isReady)
         {
-            return Data.Status == LobbyPlayerStatus.READY;
+            Data.IsReady = isReady;
+            
+            if (Data.IsReady)
+                _txtStatus.text = "READY";
+            else
+                _txtStatus.text = "NOT READY";
         }
     }
 }

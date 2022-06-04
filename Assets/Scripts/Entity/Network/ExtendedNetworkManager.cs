@@ -20,6 +20,7 @@ namespace Entity.Network
 
         private PlayerConnectedToLobbyOperation _playerConnectedToLobbyOperation;
         private PlayerDisconnectedFromLobbyOperation _playerDisconnectedFromLobbyOperation;
+        private PlayerReadyStatusChangedLobbyOperation _playerReadyStatusChangedLobbyOperation;
         
         private void OnEnable()
         {
@@ -40,6 +41,7 @@ namespace Entity.Network
 
             _playerConnectedToLobbyOperation = new();
             _playerDisconnectedFromLobbyOperation = new();
+            _playerReadyStatusChangedLobbyOperation = new();
 
             //Operations
             NetworkEvents.CreateLobbyOperation += _createLobbyOperation.CreateLobbyListener;
@@ -49,6 +51,7 @@ namespace Entity.Network
 
             NetworkEvents.OnPlayerConnectedToLobby += _playerConnectedToLobbyOperation.OnPlayerConnectedToLobby;
             NetworkEvents.OnPlayerDisconnectedFromLobby += _playerDisconnectedFromLobbyOperation.OnPlayerDisconnectedFromLobby;
+            NetworkEvents.OnPlayerReadyStatusChangedLobby += _playerReadyStatusChangedLobbyOperation.OnPlayerReadyStatusChangedLobbyOperation;
         }
 
         private void OnDisable()
@@ -71,6 +74,7 @@ namespace Entity.Network
 
             NetworkEvents.OnPlayerConnectedToLobby -= _playerConnectedToLobbyOperation.OnPlayerConnectedToLobby;
             NetworkEvents.OnPlayerDisconnectedFromLobby -= _playerDisconnectedFromLobbyOperation.OnPlayerDisconnectedFromLobby;
+            NetworkEvents.OnPlayerReadyStatusChangedLobby -= _playerReadyStatusChangedLobbyOperation.OnPlayerReadyStatusChangedLobbyOperation;
         }
         
         private void OnChangeNetworkAddressListener(string networkAddress)

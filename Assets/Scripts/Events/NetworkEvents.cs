@@ -1,4 +1,5 @@
 ﻿using System;
+using Entity.Player;
 using Mirror;
 using Steamworks;
 
@@ -22,12 +23,14 @@ namespace Events
         public static Action ListLobbiesOperation { get; set; }
         public static Action<ulong> JoinLobbyOperation { get; set; }
         public static Action<ulong> LeaveLobbyOperation { get; set; }
+        
+        public static Action<bool, int> OnPlayerReadyStatusChangedLobby { get; set; }
 
         #endregion
 
         #region Callbacks
-        public static Action<bool, int> OnPlayerConnectedToLobby { get; set; }
-        public static Action<bool, int> OnPlayerDisconnectedFromLobby { get; set; }
+        public static Action<PlayerObjectController> OnPlayerConnectedToLobby { get; set; }
+        public static Action<PlayerObjectController> OnPlayerDisconnectedFromLobby { get; set; }
         #endregion
     }
 }
