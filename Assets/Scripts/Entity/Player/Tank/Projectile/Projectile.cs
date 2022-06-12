@@ -1,4 +1,5 @@
-﻿using Mirror;
+﻿using Enums;
+using Mirror;
 using UnityEngine;
 
 namespace Entity.Player.Tank.Projectile
@@ -9,6 +10,9 @@ namespace Entity.Player.Tank.Projectile
         public Rigidbody2D rigidbody;
         public float force = 1000;
 
+        public TeamType team;
+        public ulong ownerSteamId = 0;
+
         public override void OnStartServer()
         {
             Invoke(nameof(DestroySelf), destroyAfter);
@@ -16,21 +20,21 @@ namespace Entity.Player.Tank.Projectile
 
         // set velocity for server and client. this way we don't have to sync the
         // position, because both the server and the client simulate it.
-        void Start()
+        private void Start()
         {
             rigidbody.AddForce(transform.right * force);
         }
 
         // destroy for everyone on the server
         [Server]
-        void DestroySelf()
+        private void DestroySelf()
         {
             NetworkServer.Destroy(gameObject);
         }
 
         // ServerCallback because we don't want a warning
         // if OnTriggerEnter is called on the client
-        [ServerCallback]
-        void OnTriggerEnter(Collider co) => DestroySelf();
+        // [ServerCallback]
+        // private void OnTriggerEnter2D(Collider2D other) => DestroySelf();
     }
 }

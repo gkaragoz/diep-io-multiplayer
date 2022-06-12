@@ -19,6 +19,13 @@ namespace Data.ValueObject
         [SyncVar]
         public TeamType team;
 
+        [SyncVar] 
+        public float currentHealth = 100;
+        [SyncVar] 
+        public float maxHealth = 100;
+
+        public bool isDead => currentHealth <= 0;
+        
         public TankVO tank;
     }
 }

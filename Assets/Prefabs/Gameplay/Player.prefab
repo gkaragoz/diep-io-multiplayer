@@ -322,6 +322,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   vo: {fileID: -5046921758309573378}
+  _collisionTransmitter: {fileID: 2920433648285905616}
   _playerUI: {fileID: 2290792340988817486}
 --- !u!114 &-5046921758309573378
 MonoBehaviour:
@@ -341,6 +342,9 @@ MonoBehaviour:
   connectionId: 0
   steamId: 0
   playerName: 
+  team: 0
+  currentHealth: 30
+  maxHealth: 30
   tank: {fileID: 3009186497507362038}
 --- !u!114 &2290792340988817486
 MonoBehaviour:
@@ -356,6 +360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _txtPlayerName: {fileID: 2000112402}
   _imgIcon: {fileID: 470624239}
+  _holder: {fileID: 7662581981840791348}
 --- !u!114 &5015083775725204485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -441,7 +446,9 @@ GameObject:
   - component: {fileID: 8266924971108126086}
   - component: {fileID: 6522683034225819939}
   - component: {fileID: 879104358095599018}
+  - component: {fileID: 2251455110287095097}
   - component: {fileID: 2965961240894072488}
+  - component: {fileID: 2920433648285905616}
   m_Layer: 0
   m_Name: StandardTank
   m_TagString: Untagged
@@ -490,7 +497,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebef9f184eb7444384455f53fba7476f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: 0
   bodySprite: {fileID: -431796113, guid: dbaa85a5cdc6f4dd7918dcdf0bed2575, type: 3}
   gunSprite: {fileID: -288643959, guid: dbaa85a5cdc6f4dd7918dcdf0bed2575, type: 3}
 --- !u!114 &4904177361278869628
@@ -506,6 +512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementSpeed: 3
+  _hasBlocked: 0
   _rigidbody: {fileID: 879104358095599018}
   _gunHolderTransform: {fileID: 1522302723053112837}
 --- !u!114 &8266924971108126086
@@ -558,6 +565,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &2251455110287095097
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2965961240894072486}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.225
 --- !u!212 &2965961240894072488
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -610,6 +633,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2920433648285905616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2965961240894072486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2040217abfdc44778d29d570d3995db6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6047516749442850200
 GameObject:
   m_ObjectHideFlags: 0

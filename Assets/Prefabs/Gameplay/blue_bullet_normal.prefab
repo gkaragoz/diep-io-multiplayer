@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5246748012382689067}
   - component: {fileID: 7221135205645896558}
   - component: {fileID: 728401195471250592}
+  - component: {fileID: 2093423055140337331}
   m_Layer: 0
   m_Name: blue_bullet_normal
   m_TagString: Untagged
@@ -142,3 +143,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &2093423055140337331
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5221882745877145016}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.15

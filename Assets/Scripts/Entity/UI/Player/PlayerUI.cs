@@ -11,6 +11,7 @@ namespace Entity.UI.Player
     {
         [SerializeField] private TMP_Text _txtPlayerName;
         [SerializeField] private RawImage _imgIcon;
+        [SerializeField] private GameObject _holder;
 
         private bool _avatarReceived = false;
 

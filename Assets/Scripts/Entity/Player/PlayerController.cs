@@ -1,5 +1,5 @@
-﻿using System;
-using Data.ValueObject;
+﻿using Data.ValueObject;
+using Entity.Collision;
 using Entity.Input.Controller;
 using Entity.Logger;
 using Entity.Player.Tank;
@@ -15,12 +15,23 @@ namespace Entity.Player
     {
         public PlayerVO vo;
 
+        [SerializeField] private CollisionTransmitter _collisionTransmitter;
         [SerializeField] private PlayerUI _playerUI;
 
         private Tank.Tank _tank;
         private Camera _camera;
         private InputController _inputController;
-        
+
+        private void OnEnable()
+        {
+            _collisionTransmitter.OnTriggerEnter2DCallback += OnTriggerEnter2DListener;
+        }
+
+        private void OnDisable()
+        {
+            _collisionTransmitter.OnTriggerEnter2DCallback -= OnTriggerEnter2DListener;
+        }
+
         private void Start()
         {
             vo.steamId = SteamUser.GetSteamID().m_SteamID;
@@ -51,12 +62,6 @@ namespace Entity.Player
             if (!isLocalPlayer)
                 return;
 
-            if (UnityEngine.Input.GetKeyDown(KeyCode.Space))
-            {
-                this.LogWarning("Test");
-                vo.playerName = "Abidik";
-            }
-            
             if (_inputController.HasMovementInput())
                 _tank.MoveTo(_inputController.GetMovementInput());
             else
@@ -68,6 +73,12 @@ namespace Entity.Player
             if (_inputController.HasAttackButtonPressed())
                 _tank.Attack();
         }
+
+        [ClientRpc]
+        private void Die()
+        {
+            _tank.gameObject.SetActive(false);
+        }
         
         // this is called on the server
         [Command]
@@ -77,6 +88,9 @@ namespace Entity.Player
             var gunEndPoint = _tank.GetGunEndPoint();
             
             var newProjectile = Instantiate(prefab, gunEndPoint.position, gunEndPoint.rotation);
+            var projectile = newProjectile.GetComponent<Projectile>();
+            projectile.ownerSteamId = vo.steamId;
+            projectile.team = vo.team;
             NetworkServer.Spawn(newProjectile);
             // RpcOnFireAnimation();
         }
@@ -87,15 +101,18 @@ namespace Entity.Player
         {
             // animator.SetTrigger("Shoot");
         }
-        
+
         [ServerCallback]
-        private void OnTriggerEnter(Collider other)
+        private void OnTriggerEnter2DListener(Collider2D other)
         {
-            if (other.GetComponent<Projectile>() != null)
+            var projectile = other.GetComponent<Projectile>();
+            if (vo.isDead == false && projectile != null && projectile.team != vo.team)
             {
-                // --health;
-                // if (health == 0)
-                //     NetworkServer.Destroy(gameObject);
+                vo.currentHealth -= 10f;
+                if (vo.currentHealth == 0)
+                    Die();
+                
+                NetworkServer.Destroy(other.gameObject);
             }
         }
     }
