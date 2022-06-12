@@ -1,4 +1,5 @@
-﻿using Enums;
+﻿using Data.ValueObject.Tank;
+using Enums;
 using Mirror;
 
 namespace Data.ValueObject
@@ -17,5 +18,7 @@ namespace Data.ValueObject
 
         [SyncVar]
         public TeamType team;
+
+        public TankVO tank;
     }
 }

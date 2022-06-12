@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Data.ValueObject.Tank;
+using UnityEngine;
 
 namespace Entity.Player.Tank.Motor
 {
@@ -9,10 +10,16 @@ namespace Entity.Player.Tank.Motor
         
         [SerializeField] private Rigidbody2D _rigidbody;
         [SerializeField] private Transform _gunHolderTransform;
-        
+
+        private TankVO _vo;
         private Vector2 _desiredDirection;
         private Quaternion _desiredRotation;
 
+        public void Initialize(TankVO vo)
+        {
+            _vo = vo;
+        }
+        
         private void FixedUpdate()
         {
             _rigidbody.velocity = _desiredDirection * _movementSpeed;

@@ -32,9 +32,16 @@ namespace Entity.Player
 
             _playerUI.Initialize(vo);
 
+            _tank.Initialize(vo.tank);
+            _tank.SetVisualization(vo.team);
             _tank.OnAttackCallback += CmdFire;
         }
-        
+
+        public override void OnStartAuthority()
+        {
+            gameObject.name = "LocalGamePlayer";
+        }
+
         public override void OnStopClient()
         {
         }

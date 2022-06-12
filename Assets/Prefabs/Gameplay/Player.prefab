@@ -341,7 +341,7 @@ MonoBehaviour:
   connectionId: 0
   steamId: 0
   playerName: 
-  team: 0
+  tank: {fileID: 3009186497507362038}
 --- !u!114 &2290792340988817486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,12 +436,14 @@ GameObject:
   m_Component:
   - component: {fileID: 2965961240894072489}
   - component: {fileID: 9209206755610785283}
+  - component: {fileID: 3009186497507362038}
   - component: {fileID: 4904177361278869628}
+  - component: {fileID: 8266924971108126086}
   - component: {fileID: 6522683034225819939}
   - component: {fileID: 879104358095599018}
   - component: {fileID: 2965961240894072488}
   m_Layer: 0
-  m_Name: Tank
+  m_Name: StandardTank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -476,6 +478,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02cb8fbe27d9d12439092525c739cf27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3009186497507362038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2965961240894072486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebef9f184eb7444384455f53fba7476f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: 0
+  bodySprite: {fileID: -431796113, guid: dbaa85a5cdc6f4dd7918dcdf0bed2575, type: 3}
+  gunSprite: {fileID: -288643959, guid: dbaa85a5cdc6f4dd7918dcdf0bed2575, type: 3}
 --- !u!114 &4904177361278869628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -491,6 +508,20 @@ MonoBehaviour:
   _movementSpeed: 3
   _rigidbody: {fileID: 879104358095599018}
   _gunHolderTransform: {fileID: 1522302723053112837}
+--- !u!114 &8266924971108126086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2965961240894072486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa05f005f7604310ac57814d2dde28c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _body: {fileID: 2965961240894072488}
+  _gun: {fileID: 397357918110864514}
 --- !u!114 &6522683034225819939
 MonoBehaviour:
   m_ObjectHideFlags: 0

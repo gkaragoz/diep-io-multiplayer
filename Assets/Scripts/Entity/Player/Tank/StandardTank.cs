@@ -1,18 +1,29 @@
-﻿using Entity.Player.Tank.Attacker;
+﻿using Data.ValueObject.Tank;
+using Entity.Player.Tank.Attacker;
 using UnityEngine;
 
 namespace Entity.Player.Tank
 {
     public class StandardTank : Tank
     {
+        private StandardTankVO _standardTankVO;
+
+        public override TankVO VO
+        {
+            get => _standardTankVO;
+            set => _standardTankVO = value as StandardTankVO;
+        }
+
         protected ITankAttacker Attacker { get; set; }
 
-        protected override void Awake()
+        public override void Initialize(TankVO vo)
         {
-            base.Awake();
-
+            _standardTankVO = vo as StandardTankVO;
+            
+            base.Initialize(vo);
+            
             Attacker = GetComponent<ITankAttacker>();
-
+            Attacker.Initialize(VO);
             Attacker.OnAttackCallback = OnAttackCallback;
         }
 
