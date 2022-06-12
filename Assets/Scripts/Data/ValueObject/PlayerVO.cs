@@ -1,15 +1,21 @@
-﻿using System;
+﻿using Enums;
+using Mirror;
 
 namespace Data.ValueObject
 {
-    [Serializable]
-    public class PlayerVO
+    public class PlayerVO : NetworkBehaviour
     {
-        public ulong steamLobbyId;
+        [SyncVar]
+        public ulong lobbySteamId;
 
+        [SyncVar]
         public int connectionId;
-        public int mirrorId;
+        [SyncVar]
         public ulong steamId;
+        [SyncVar]
         public string playerName;
+
+        [SyncVar]
+        public TeamType team;
     }
 }

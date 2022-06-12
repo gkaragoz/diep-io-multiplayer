@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using Constants;
+using Data.ValueObject;
 using Entity.Network.Operations;
 using Entity.Player;
+using Enums;
 using Events;
 using Mirror;
 using UnityEngine;
@@ -10,6 +12,8 @@ namespace Entity.Network
 {
     public class ExtendedNetworkManager : NetworkManager
     {
+        private Dictionary<NetworkConnectionToClient, PlayerController> _players = new();
+
         private CreateLobbyOperation _createLobbyOperation;
         private JoinLobbyOperation _joinLobbyOperation;
         private ListLobbiesOperation _listLobbiesOperation;
@@ -26,6 +30,8 @@ namespace Entity.Network
             NetworkEvents.StopServer += StopServer;
             
             NetworkEvents.ChangeNetworkAddress += OnChangeNetworkAddressListener;
+
+            _players = new();
             
             _createLobbyOperation = new();
             _joinLobbyOperation = new();
@@ -78,16 +84,24 @@ namespace Entity.Network
             // => appending the connectionId is WAY more useful for debugging!
             player.name = $"{playerPrefab.name} [connId={conn.connectionId}]";
 
-            var lobbySteamId = ulong.Parse(PlayerPrefs.GetString(NetworkConstants.LOBBY_STEAM_ID));;
-            player.lobbySteamId = lobbySteamId;
-            player.connectionId = conn.connectionId;
+            var lobbySteamId = ulong.Parse(PlayerPrefs.GetString(NetworkConstants.LOBBY_STEAM_ID));
+            var connectionId = conn.connectionId;
+            var team = (_players.Count + 1) % 2 == 0 ? TeamType.TeamB : TeamType.TeamA;
+            
+            player.vo.lobbySteamId = lobbySteamId;
+            player.vo.connectionId = connectionId;
+            player.vo.team = team;
             
             NetworkServer.AddPlayerForConnection(conn, player.gameObject);
+            _players.Add(conn, player);
         }
 
         public override void OnServerDisconnect(NetworkConnectionToClient conn)
         {
             base.OnServerDisconnect(conn);
+
+            Debug.LogWarning("OnServerDisconnect");
+            _players.Remove(conn);
         }
 
         public override void OnClientConnect()

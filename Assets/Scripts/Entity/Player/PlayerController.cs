@@ -1,4 +1,7 @@
-﻿using Entity.Input.Controller;
+﻿using System;
+using Data.ValueObject;
+using Entity.Input.Controller;
+using Entity.Logger;
 using Entity.Player.Tank;
 using Entity.Player.Tank.Projectile;
 using Entity.UI.Player;
@@ -10,33 +13,42 @@ namespace Entity.Player
 {
     public class PlayerController : NetworkBehaviour
     {
-        [SyncVar] public ulong lobbySteamId;
-        [SyncVar] public int connectionId;
-        [SyncVar] public ulong steamId;
+        public PlayerVO vo;
 
         [SerializeField] private PlayerUI _playerUI;
 
         private Tank.Tank _tank;
         private Camera _camera;
         private InputController _inputController;
-
-        private void Awake()
+        
+        private void Start()
         {
-            steamId = SteamUser.GetSteamID().m_SteamID;
+            vo.steamId = SteamUser.GetSteamID().m_SteamID;
+            vo.playerName = SteamFriends.GetPersonaName();
             
             _camera = Camera.main;
             _tank = GetComponentInChildren<StandardTank>();
             _inputController = GetComponent<KeyboardMouseController>();
 
-            _playerUI.Initialize();
+            _playerUI.Initialize(vo);
 
             _tank.OnAttackCallback += CmdFire;
         }
-
+        
+        public override void OnStopClient()
+        {
+        }
+        
         private void Update()
         {
             if (!isLocalPlayer)
                 return;
+
+            if (UnityEngine.Input.GetKeyDown(KeyCode.Space))
+            {
+                this.LogWarning("Test");
+                vo.playerName = "Abidik";
+            }
             
             if (_inputController.HasMovementInput())
                 _tank.MoveTo(_inputController.GetMovementInput());
@@ -48,19 +60,6 @@ namespace Entity.Player
             
             if (_inputController.HasAttackButtonPressed())
                 _tank.Attack();
-        }
-
-        public override void OnStartAuthority()
-        {
-            gameObject.name = "LocalGamePlayer";
-        }
-
-        public override void OnStartClient()
-        {
-        }
-
-        public override void OnStopClient()
-        {
         }
         
         // this is called on the server

@@ -1,4 +1,5 @@
-﻿using Entity.Network;
+﻿using Data.ValueObject;
+using Entity.Network;
 using Steamworks;
 using TMPro;
 using UnityEngine;
@@ -14,9 +15,12 @@ namespace Entity.UI.Player
         private bool _avatarReceived = false;
 
         private Callback<AvatarImageLoaded_t> _imageLoadedCallback;
-
-        public void Initialize()
+        private PlayerVO _playerVO;
+        
+        public void Initialize(PlayerVO vo)
         {
+            _playerVO = vo;
+            
             _imageLoadedCallback = Callback<AvatarImageLoaded_t>.Create(OnImageLoaded);
             
             SetPlayerName();
@@ -27,12 +31,12 @@ namespace Entity.UI.Player
 
         private void SetPlayerName()
         {
-            _txtPlayerName.text = $"{SteamFriends.GetPersonaName()}";
+            _txtPlayerName.text = $"{_playerVO.playerName}";
         }
         
         private void PlayerIconRequest()
         {
-            int imageId = SteamFriends.GetLargeFriendAvatar(SteamUser.GetSteamID());
+            int imageId = SteamFriends.GetLargeFriendAvatar(new CSteamID(_playerVO.steamId));
             if (imageId == -1)
                 return;
 
@@ -41,7 +45,7 @@ namespace Entity.UI.Player
         
         private void OnImageLoaded(AvatarImageLoaded_t callback)
         {
-            if (callback.m_steamID == SteamUser.GetSteamID())
+            if (callback.m_steamID.m_SteamID == _playerVO.steamId)
                 _imgIcon.texture = SteamHelpers.GetSteamImageAsTexture(callback.m_iImage);
             else //another player
                 return;

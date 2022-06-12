@@ -251,6 +251,7 @@ GameObject:
   - component: {fileID: 2388135478897492353}
   - component: {fileID: 3154028861252622792}
   - component: {fileID: 1838716499645798578}
+  - component: {fileID: -5046921758309573378}
   - component: {fileID: 2290792340988817486}
   - component: {fileID: 5015083775725204485}
   - component: {fileID: 4265549647761909600}
@@ -320,10 +321,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
+  vo: {fileID: -5046921758309573378}
+  _playerUI: {fileID: 2290792340988817486}
+--- !u!114 &-5046921758309573378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2965961240765243222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1113cbbe1b1a4287969713b0f28e94f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
   lobbySteamId: 0
   connectionId: 0
   steamId: 0
-  _playerUI: {fileID: 2290792340988817486}
+  playerName: 
+  team: 0
 --- !u!114 &2290792340988817486
 MonoBehaviour:
   m_ObjectHideFlags: 0
