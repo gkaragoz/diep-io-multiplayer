@@ -69,7 +69,9 @@ MonoBehaviour:
   syncInterval: 0.1
   destroyAfter: 2
   rigidbody: {fileID: 728401195471250592}
-  force: 100
+  force: 1000
+  team: 0
+  ownerSteamId: 0
 --- !u!212 &7221135205645896558
 SpriteRenderer:
   m_ObjectHideFlags: 0

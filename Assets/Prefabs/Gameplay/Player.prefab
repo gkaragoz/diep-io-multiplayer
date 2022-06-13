@@ -343,8 +343,8 @@ MonoBehaviour:
   steamId: 0
   playerName: 
   team: 0
-  currentHealth: 30
-  maxHealth: 30
+  currentHealth: 1000
+  maxHealth: 1000
   tank: {fileID: 3009186497507362038}
 --- !u!114 &2290792340988817486
 MonoBehaviour:
@@ -374,9 +374,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
-  syncInterval: 0.1
+  syncInterval: 0.01
   clientAuthority: 1
-  sendInterval: 0.05
+  sendInterval: 0.01
   syncPosition: 1
   syncRotation: 0
   syncScale: 0
@@ -409,9 +409,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   syncMode: 0
-  syncInterval: 0.1
+  syncInterval: 0.01
   clientAuthority: 1
-  sendInterval: 0.05
+  sendInterval: 0.01
   syncPosition: 0
   syncRotation: 1
   syncScale: 0
@@ -511,7 +511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 302f6d9a50684fa0ba31ff23cbb9625d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 3
+  _movementSpeed: 8
   _hasBlocked: 0
   _rigidbody: {fileID: 879104358095599018}
   _gunHolderTransform: {fileID: 1522302723053112837}
@@ -543,7 +543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gunEndPoint: {fileID: 6758383992664469164}
   _projectilePrefab: {fileID: 5221882745877145016, guid: bebc13a1db88aec4a942d2d5fd13611a, type: 3}
-  _cooldown: 0.25
+  _cooldown: 0.02
 --- !u!50 &879104358095599018
 Rigidbody2D:
   serializedVersion: 4
