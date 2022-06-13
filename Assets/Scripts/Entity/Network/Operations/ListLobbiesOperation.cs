@@ -25,7 +25,7 @@ namespace Entity.Network.Operations
         public void ListLobbiesListener()
         {
             this.Log("RequestLobbyList");
-            SteamMatchmaking.AddRequestLobbyListStringFilter(NetworkConstants.LOBBY_OWNER_NAME_KEY, "Whoaa",
+            SteamMatchmaking.AddRequestLobbyListStringFilter(NetworkConstants.LOBBY_OWNER_NAME_KEY, string.Empty,
                 ELobbyComparison.k_ELobbyComparisonEqualToOrGreaterThan);
             _requestLobbyList.Set(SteamMatchmaking.RequestLobbyList());
         }

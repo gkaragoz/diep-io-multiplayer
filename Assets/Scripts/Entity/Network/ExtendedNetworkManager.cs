@@ -66,8 +66,8 @@ namespace Entity.Network
         
         private void OnChangeNetworkAddressListener(string networkAddress)
         {
-            Debug.LogWarning("WARNING: Not using steam address.");
-            return;
+            // Debug.LogWarning("WARNING: Not using steam address.");
+            // return;
             this.networkAddress = networkAddress;
         }
 
